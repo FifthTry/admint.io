@@ -1,0 +1,208 @@
+-- import: fifthtry.github.io/admint.io/assets
+-- import: fifthtry.github.io/admint.io as io
+
+-- integer $current-cell: 1
+
+-- io.page:
+
+-- how-it-works: HOW IT WORKS
+subtitle: Web 3.0 campaigns  set up made simple.
+
+AdMint offsets most of the technological challenges associated with Web 3.0, allowing advertisers to focus on strategy & campaign execution
+
+-- io.slider:
+$active-cell: $current-cell
+
+-- works-cell: PLANNING
+number: 1
+right-src: $assets.files.static.lezgoo.planning-right-img.svg 
+left-src: $assets.files.static.lezgoo.planning-left-img.svg
+top-cell: You choose your brand’s campaign objective 
+bottom-cell: AdMint provides relevant web 3.0 context on the campaign execution.
+index: 1
+reset: $current-cell
+
+-- works-cell: FUNDS
+number: 1
+left-src: $assets.files.static.lezgoo.fund-left-img.svg 
+right-src: $assets.files.static.lezgoo.fund-right-img.svg
+top-cell: You set up funds via standard payment options 
+bottom-cell: AdMint handles your crypto wallets & transfers 
+index: 2
+reset: $current-cell
+
+-- works-cell: NFTs
+number: 1
+left-src: $assets.files.static.lezgoo.nft-left-img.svg 
+right-src: $assets.files.static.lezgoo.nft-right-img.svg
+top-cell: You provide us creatives to run the campaign
+bottom-cell: AdMint preps & converts them into NFT collections
+index: 3
+reset: $current-cell
+
+-- works-cell: DISTRIBUTION
+number: 1
+left-src: $assets.files.static.lezgoo.dist-left-img.svg 
+right-src: $assets.files.static.lezgoo.dist-right-img.svg
+top-cell: You identify target audience to receive the NFTs
+bottom-cell: AdMint provides tools and templates to enable distribution. execution.
+index: 4
+reset: $current-cell
+
+-- works-cell: UTILITY
+number: 1
+left-src: $assets.files.static.lezgoo.utility-left-img.svg 
+right-src: $assets.files.static.lezgoo.utility-right-img.svg
+top-cell: You determine the real world value offering to consumers
+bottom-cell: AdMint helps validate NFT ownership & extends access 
+index: 5
+reset: $current-cell
+
+-- end: io.slider
+
+-- end: how-it-works
+
+-- end: io.page
+
+-- component how-it-works:
+caption title:
+string subtitle:
+body body:
+children works-wrap:
+
+-- ftd.column:
+width: fill-container
+padding-top.px: 42
+padding-bottom.px: 80
+max-width.fixed.px: 1320
+align-self: center
+
+-- ftd.text: $how-it-works.title
+role: $inherited.types.label-large
+color: $inherited.colors.custom.two
+margin-bottom.px: 41
+
+
+-- ftd.text: $how-it-works.subtitle
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+region: h2
+margin-bottom.px: 28
+
+-- ftd.text:
+text: $how-it-works.body
+role: $inherited.types.copy-large
+color: $inherited.colors.text
+margin-bottom.px: 20
+width.fixed.percent: 65
+
+-- ftd.column:
+children: $how-it-works.works-wrap
+width: fill-container
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: how-it-works
+
+
+-- component works-cell:
+caption title:
+integer number:
+ftd.image-src left-src:
+ftd.image-src right-src:
+string top-cell:
+string bottom-cell:
+optional integer index:
+optional integer reset:
+
+
+-- ftd.row:
+if: { works-cell.index == works-cell.reset }
+width: fill-container
+max-width.fixed.px: 1320
+
+-- ftd.integer: $works-cell.reset
+-- ftd.integer: $works-cell.index
+-- ftd.image:
+src: $works-cell.left-src
+padding-horizontal.px: 12
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 12
+
+-- ftd.row:
+width: fill-container
+align-content: center
+
+-- ftd.text: Step
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.four
+
+-- ftd.integer: $works-cell.number
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.four
+
+-- end: ftd.row
+
+-- ftd.text: $works-cell.title
+role: $inherited.types.fine-print
+color: $inherited.colors.custom.four
+margin-bottom.px: 10
+text-align: center
+
+-- ftd.column:
+anchor: parent
+top.percent: 24
+z-index: -1
+width.fixed.px: 300
+align-content: center
+align-self: center
+
+-- ftd.image:
+width: fill-container
+src: $assets.files.static.lezgoo.how-it-works.svg
+align-self: center
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.percent: 85
+align-content: center
+min-width.fixed.px: 300
+
+
+-- ftd.text: $works-cell.top-cell
+role: $inherited.types.blockquote
+color: $inherited.colors.text-strong
+padding-vertical.px: 13
+padding-horizontal.px: 17
+width.fixed.percent: 100
+margin-left.percent: 24
+
+
+-- ftd.text: $works-cell.bottom-cell
+role: $inherited.types.blockquote
+color: $inherited.colors.background.step-1
+padding-vertical.px: 13
+padding-horizontal.px: 17
+width.fixed.percent: 100
+
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+
+-- ftd.image:
+src: $works-cell.right-src
+padding-horizontal.px: 12
+align-self: center
+
+-- end: ftd.row
+
+-- end: works-cell
+
