@@ -5,9 +5,7 @@
 
 -- io.page:
 
-
 -- tabs:
-
 
 -- tab: For Advertisers
 index: 1
@@ -40,7 +38,6 @@ annually-price: 70.98
 index: 2
 reset: $current-tab
 
-
 -- business-card: BUSINESS
 monthly-price: 56.90
 annually-price: 30.90
@@ -55,10 +52,15 @@ annually-price: 70.98
 
 -- end: tab-panel
 
-
-
-
 -- end: io.page
+
+
+
+
+
+
+
+
 
 
 -- component business-card:
@@ -75,7 +77,6 @@ padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
 border-width.px:1
-
 
 -- ftd.text: $business-card.title
 role: $fonts.size-18
@@ -100,8 +101,6 @@ if: {change-prices}
 role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
-
-
 -- end: ftd.row
 
 -- ftd.row:
@@ -121,14 +120,17 @@ src: $assets.files.static.pricing.black-star.svg
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
-
 -- end: ftd.row
-
 
 -- end: ftd.column
 
-
 -- end: business-card
+
+
+
+
+
+
 
 
 
@@ -177,7 +179,6 @@ spacing.fixed.px: 4
 role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
-
 -- ftd.decimal: $business-plus-card.monthly-price
 if: {!change-prices}
 role: $inherited.types.heading-medium
@@ -187,8 +188,6 @@ color: $inherited.colors.background.step-1
 if: {change-prices}
 role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
-
-
 
 -- end: ftd.row
 
@@ -201,6 +200,7 @@ align-content: center
 background.solid: #cdcdcd36
 width: fill-container
 spacing.fixed.px: 4
+
 -- ftd.image:
 src: $assets.files.static.pricing.white-star.svg
 
@@ -208,16 +208,20 @@ src: $assets.files.static.pricing.white-star.svg
 role: $inherited.types.copy-regular
 color: $inherited.colors.background.step-1
 
-
 -- end: ftd.row
 
-
 -- end: ftd.column
-
 
 -- end: business-plus-card
 
 -- boolean $change-prices: false
+
+
+
+
+
+
+
 
 
 
@@ -236,7 +240,6 @@ width.fixed.px: 1296
 align-content: right
 padding-vertical.px: 38
 spacing.fixed.px: 24
-
 
 -- ftd.text: Monthly
 role: $fonts.size-24
@@ -261,7 +264,6 @@ $on-click$: $ftd.set-bool($a = $change-prices, v = false)
 role: $fonts.size-24
 color: $inherited.colors.custom.one
 color if { !tab-panel.switch}: $inherited.colors.border
-
 
 -- end: ftd.row
 
@@ -300,7 +302,18 @@ children: $tabs.tabs-warp
 
 
 
+
+
+
+
+
 -- integer $current-tab: 1
+
+
+
+
+
+
 
 
 

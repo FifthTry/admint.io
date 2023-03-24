@@ -64,6 +64,15 @@ reset: $current-cell
 
 -- end: io.page
 
+
+
+
+
+
+
+
+
+
 -- component how-it-works:
 caption title:
 string subtitle:
@@ -81,7 +90,6 @@ align-self: center
 role: $inherited.types.label-large
 color: $inherited.colors.custom.two
 margin-bottom.px: 41
-
 
 -- ftd.text: $how-it-works.subtitle
 role: $inherited.types.heading-medium
@@ -107,6 +115,14 @@ width: fill-container
 -- end: how-it-works
 
 
+
+
+
+
+
+
+
+
 -- component works-cell:
 caption title:
 integer number:
@@ -117,14 +133,11 @@ string bottom-cell:
 optional integer index:
 optional integer reset:
 
-
 -- ftd.row:
 if: { works-cell.index == works-cell.reset }
 width: fill-container
 max-width.fixed.px: 1320
 
--- ftd.integer: $works-cell.reset
--- ftd.integer: $works-cell.index
 -- ftd.image:
 src: $works-cell.left-src
 padding-horizontal.px: 12
@@ -173,7 +186,6 @@ width.fixed.percent: 85
 align-content: center
 min-width.fixed.px: 300
 
-
 -- ftd.text: $works-cell.top-cell
 role: $inherited.types.blockquote
 color: $inherited.colors.text-strong
@@ -182,7 +194,6 @@ padding-horizontal.px: 17
 width.fixed.percent: 100
 margin-left.percent: 24
 
-
 -- ftd.text: $works-cell.bottom-cell
 role: $inherited.types.blockquote
 color: $inherited.colors.background.step-1
@@ -190,12 +201,9 @@ padding-vertical.px: 13
 padding-horizontal.px: 17
 width.fixed.percent: 100
 
-
 -- end: ftd.column
 
 -- end: ftd.column
-
-
 
 -- ftd.image:
 src: $works-cell.right-src
