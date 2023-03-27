@@ -2276,7 +2276,7 @@ background-color: #ffffff1f;
 }
 
 
-.markdown p {
+p {
 margin-block-end: 1em;
 }
 
@@ -4292,6 +4292,54 @@ data[argument] = eval(component.getAttribute(argument));
 }
 return data;
 };
+exports.call_mutable_value_changes = function (key, id) {
+if (!window.ftd[`mutable_value_${id}`]) {
+return;
+}
+if (!!window.ftd[`mutable_value_${id}`][key]) {
+let changes = window.ftd[`mutable_value_${id}`][key].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+const pattern = new RegExp(`^${key}\\..+`);
+const result = Object.keys(window.ftd[`mutable_value_${id}`])
+.filter(key => pattern.test(key))
+.reduce((acc, key) => {
+acc[key] = window.ftd[`mutable_value_${id}`][key];
+return acc;
+}, {});
+for (let i in result) {
+let changes = result[i].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+};
+exports.call_immutable_value_changes = function (key, id) {
+if (!window.ftd[`immutable_value_${id}`]) {
+return;
+}
+if (!!window.ftd[`immutable_value_${id}`][key]) {
+let changes = window.ftd[`immutable_value_${id}`][key].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+const pattern = new RegExp(`^${key}\\..+`);
+const result = Object.keys(window.ftd[`immutable_value_${id}`])
+.filter(key => pattern.test(key))
+.reduce((acc, key) => {
+acc[key] = window.ftd[`immutable_value_${id}`][key];
+return acc;
+}, {});
+for (let i in result) {
+let changes = result[i].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+};
 return exports;
 })();
 window.ftd.post_init = function () {
@@ -5147,21 +5195,15 @@ set_data_value(data, "fifthtry.github.io/admint-cs#main" + "." + remaining, new_
 set_data_value(data, "fifthtry.github.io/admint-cs#main", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint-cs#main"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint-cs#main"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint-cs#main"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint-cs#main"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__color"]){window.node_change_main["0,0,1,1,0,2:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,1,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__color"]){window.node_change_main["0,0,1,1,0,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__color"]){window.node_change_main["0,0,1,1,1:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__color"]){window.node_change_main["0,0,1,1,0,1:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,1,0,0:main__color"](data);
 }
 };
 
@@ -5172,43 +5214,37 @@ set_data_value(data, "fifthtry.github.io/admint-typography#types" + "." + remain
 set_data_value(data, "fifthtry.github.io/admint-typography#types", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint-typography#types"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint-typography#types"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint-typography#types"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint-typography#types"].changes;
-for(let i in changes) { changes[i](); }
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-weight"]){window.node_change_main["0,0,1,1,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-weight"]){window.node_change_main["0,0,1,1,0,2:main__font-weight"](data);
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-family"]){window.node_change_main["0,0,1,1,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__line-height"]){window.node_change_main["0,0,1,1,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-family"]){window.node_change_main["0,0,1,1,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,1:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-family"]){window.node_change_main["0,0,1,1,0,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,1,0,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-size"]){window.node_change_main["0,0,1,1,0,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-size"]){window.node_change_main["0,0,1,1,0,2:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,0:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__line-height"]){window.node_change_main["0,0,1,1,0,2:main__line-height"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-size"]){window.node_change_main["0,0,1,1,0,2:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-weight"]){window.node_change_main["0,0,1,1,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,1:main__letter-spacing"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-weight"]){window.node_change_main["0,0,1,1,0,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-family"]){window.node_change_main["0,0,1,1,0,1:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__line-height"]){window.node_change_main["0,0,1,1,0,1:main__line-height"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-weight"]){window.node_change_main["0,0,1,1,0,2:main__font-weight"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,2:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,1,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-family"]){window.node_change_main["0,0,1,1,0,2:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__line-height"]){window.node_change_main["0,0,1,1,0,0:main__line-height"](data);
 }
 };
 
@@ -5219,14 +5255,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/assets#files.static.lezgoo.le
 set_data_value(data, "fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/assets#files.static.lezgoo.lezgoo-img.svg", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__src"]){window.node_change_main["0,0,0:main__src"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0:main__src"]){window.node_change_main["0,0,1,0:main__src"](data);
@@ -5240,14 +5270,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0" + "
 set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:body1:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__text"]){window.node_change_main["0,0,1,1,0,1:main__text"](data);
 }
 };
@@ -5259,14 +5283,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0" + ".
 set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:body:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__text"]){window.node_change_main["0,0,1,1,0,2:main__text"](data);
 }
 };
@@ -5278,14 +5296,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0"
 set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-label:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__text"]){window.node_change_main["0,0,1,1,1:main__text"](data);
 }
 };
@@ -5297,14 +5309,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0" +
 set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:cta-url:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__href"]){window.node_change_main["0,0,1,1,1:main__href"](data);
 }
 };
@@ -5316,14 +5322,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0" + "
 set_data_value(data, "fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/lezgoo/#lezgoo:title:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__text"]){window.node_change_main["0,0,1,1,0,0:main__text"](data);
 }
 };
@@ -5335,29 +5335,23 @@ set_data_value(data, "ftd#dark-mode" + "." + remaining, new_value);
 set_data_value(data, "ftd#dark-mode", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#dark-mode"]) {
-let changes = window.ftd.mutable_value_main["ftd#dark-mode"].changes;
-for(let i in changes) { changes[i](); }
+window.ftd.call_mutable_value_changes("ftd#dark-mode", "main");
+window.ftd.call_immutable_value_changes("ftd#dark-mode", "main");
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,1,0,0:main__color"](data);
 }
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#dark-mode"]) {
-let changes = window.ftd.immutable_value_main["ftd#dark-mode"].changes;
-for(let i in changes) { changes[i](); }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0:main__src"]){window.node_change_main["0,0,1,0:main__src"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__background-image"]){window.node_change_main["0,0,1,1,1:main__background-image"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__src"]){window.node_change_main["0,0,0:main__src"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__color"]){window.node_change_main["0,0,1,1,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__background-color"]){window.node_change_main["0,0,1,1,1:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__color"]){window.node_change_main["0,0,1,1,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0:main__src"]){window.node_change_main["0,0,1,0:main__src"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__color"]){window.node_change_main["0,0,1,1,0,2:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__src"]){window.node_change_main["0,0,0:main__src"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__color"]){window.node_change_main["0,0,1,1,0,1:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,1,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,1:main__background-image"]){window.node_change_main["0,0,1,1,1:main__background-image"](data);
 }
 };
 
@@ -5368,49 +5362,43 @@ set_data_value(data, "ftd#device" + "." + remaining, new_value);
 set_data_value(data, "ftd#device", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#device"]) {
-let changes = window.ftd.mutable_value_main["ftd#device"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#device"]) {
-let changes = window.ftd.immutable_value_main["ftd#device"].changes;
-for(let i in changes) { changes[i](); }
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-family"]){window.node_change_main["0,0,1,1,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-family"]){window.node_change_main["0,0,1,1,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__line-height"]){window.node_change_main["0,0,1,1,0,1:main__line-height"](data);
+window.ftd.call_mutable_value_changes("ftd#device", "main");
+window.ftd.call_immutable_value_changes("ftd#device", "main");
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,2:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-size"]){window.node_change_main["0,0,1,1,0,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-size"]){window.node_change_main["0,0,1,1,0,2:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1:main__padding"]){window.node_change_main["0,0,1,1:main__padding"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__display"]){window.node_change_main["0,0,0:main__display"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,1,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0:main__display"]){window.node_change_main["0,0,1,0:main__display"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__line-height"]){window.node_change_main["0,0,1,1,0,0:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-family"]){window.node_change_main["0,0,1,1,0,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__line-height"]){window.node_change_main["0,0,1,1,0,2:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0:main__display"]){window.node_change_main["0,0,1,0:main__display"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,1,0,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-weight"]){window.node_change_main["0,0,1,1,0,1:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,1:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-family"]){window.node_change_main["0,0,1,1,0,0:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-weight"]){window.node_change_main["0,0,1,1,0,2:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,2:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__line-height"]){window.node_change_main["0,0,1,1,0,2:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1:main__padding"]){window.node_change_main["0,0,1,1:main__padding"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__line-height"]){window.node_change_main["0,0,1,1,0,1:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__font-weight"]){window.node_change_main["0,0,1,1,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-family"]){window.node_change_main["0,0,1,1,0,2:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,2:main__font-size"]){window.node_change_main["0,0,1,1,0,2:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,1:main__font-family"]){window.node_change_main["0,0,1,1,0,1:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,1,0,0:main__letter-spacing"](data);
 }
 };
 

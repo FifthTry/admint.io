@@ -2311,7 +2311,7 @@ background-color: #ffffff1f;
 }
 
 
-.markdown p {
+p {
 margin-block-end: 1em;
 }
 
@@ -4327,6 +4327,54 @@ data[argument] = eval(component.getAttribute(argument));
 }
 return data;
 };
+exports.call_mutable_value_changes = function (key, id) {
+if (!window.ftd[`mutable_value_${id}`]) {
+return;
+}
+if (!!window.ftd[`mutable_value_${id}`][key]) {
+let changes = window.ftd[`mutable_value_${id}`][key].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+const pattern = new RegExp(`^${key}\\..+`);
+const result = Object.keys(window.ftd[`mutable_value_${id}`])
+.filter(key => pattern.test(key))
+.reduce((acc, key) => {
+acc[key] = window.ftd[`mutable_value_${id}`][key];
+return acc;
+}, {});
+for (let i in result) {
+let changes = result[i].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+};
+exports.call_immutable_value_changes = function (key, id) {
+if (!window.ftd[`immutable_value_${id}`]) {
+return;
+}
+if (!!window.ftd[`immutable_value_${id}`][key]) {
+let changes = window.ftd[`immutable_value_${id}`][key].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+const pattern = new RegExp(`^${key}\\..+`);
+const result = Object.keys(window.ftd[`immutable_value_${id}`])
+.filter(key => pattern.test(key))
+.reduce((acc, key) => {
+acc[key] = window.ftd[`immutable_value_${id}`][key];
+return acc;
+}, {});
+for (let i in result) {
+let changes = result[i].changes;
+for (let i in changes) {
+changes[i]();
+}
+}
+};
 return exports;
 })();
 window.ftd.post_init = function () {
@@ -5502,45 +5550,39 @@ set_data_value(data, "fifthtry.github.io/admint-cs#main" + "." + remaining, new_
 set_data_value(data, "fifthtry.github.io/admint-cs#main", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint-cs#main"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint-cs#main"].changes;
-for(let i in changes) { changes[i](); }
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
 }
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint-cs#main"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint-cs#main"].changes;
-for(let i in changes) { changes[i](); }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__color"]){window.node_change_main["0,0,0,3:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
 }
 };
 
@@ -5551,83 +5593,77 @@ set_data_value(data, "fifthtry.github.io/admint-typography#types" + "." + remain
 set_data_value(data, "fifthtry.github.io/admint-typography#types", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint-typography#types"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint-typography#types"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint-typography#types"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint-typography#types"].changes;
-for(let i in changes) { changes[i](); }
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
 }
 };
 
@@ -5638,14 +5674,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:align-center:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7:main__align-self"]){window.node_change_main["0,0,0,7:main__align-self"](data);
 }
 };
@@ -5657,14 +5687,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-radius"]){window.node_change_main["0,0,0,7,0:main__border-radius"](data);
 }
 };
@@ -5676,14 +5700,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:link:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__href"]){window.node_change_main["0,0,0,7,0:main__href"](data);
 }
 };
@@ -5695,14 +5713,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7:main__margin-top"]){window.node_change_main["0,0,0,7:main__margin-top"](data);
 }
 };
@@ -5714,14 +5726,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:medium:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__display"]){window.node_change_main["0,0,0,7,0:main__display"](data);
 }
 };
@@ -5733,14 +5739,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-right"]){window.node_change_main["0,0,0,7,0:main__padding-right"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-left"]){window.node_change_main["0,0,0,7,0:main__padding-left"](data);
@@ -5754,14 +5754,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-top"]){window.node_change_main["0,0,0,7,0:main__padding-top"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-bottom"]){window.node_change_main["0,0,0,7,0:main__padding-bottom"](data);
@@ -5775,19 +5769,13 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
 }
 };
 
@@ -5798,14 +5786,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:text-color:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
 }
 };
@@ -5817,14 +5799,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__width"]){window.node_change_main["0,0,0,7,0:main__width"](data);
 }
 };
@@ -5836,14 +5812,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:cta-text:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__text"]){window.node_change_main["0,0,0,7,0,0:main__text"](data);
 }
 };
@@ -5855,14 +5825,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__text"]){window.node_change_main["0,0,0,2:main__text"](data);
 }
 };
@@ -5874,14 +5838,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label2:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__text"]){window.node_change_main["0,0,0,4,0,0:main__text"](data);
 }
 };
@@ -5893,14 +5851,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label3:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__text"]){window.node_change_main["0,0,0,4,1,0:main__text"](data);
 }
 };
@@ -5912,14 +5864,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label4:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__text"]){window.node_change_main["0,0,0,5:main__text"](data);
 }
 };
@@ -5931,14 +5877,8 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-for
 set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0"]) {
-let changes = window.ftd.mutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0"]) {
-let changes = window.ftd.immutable_value_main["fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0"].changes;
-for(let i in changes) { changes[i](); }
-}
+window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0", "main");
+window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__text"]){window.node_change_main["0,0,0,1:main__text"](data);
 }
 };
@@ -5950,73 +5890,67 @@ set_data_value(data, "ftd#dark-mode" + "." + remaining, new_value);
 set_data_value(data, "ftd#dark-mode", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#dark-mode"]) {
-let changes = window.ftd.mutable_value_main["ftd#dark-mode"].changes;
-for(let i in changes) { changes[i](); }
+window.ftd.call_mutable_value_changes("ftd#dark-mode", "main");
+window.ftd.call_immutable_value_changes("ftd#dark-mode", "main");
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
 }
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#dark-mode"]) {
-let changes = window.ftd.immutable_value_main["ftd#dark-mode"].changes;
-for(let i in changes) { changes[i](); }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-image"]){window.node_change_main["0,0,0,4,1,1:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-color"]){window.node_change_main["0,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-color"]){window.node_change_main["0,0,0,6:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-image"]){window.node_change_main["0,0:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-image"]){window.node_change_main["0,0,0,3:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-image"]){window.node_change_main["0,0,0,6:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-image"]){window.node_change_main["0,0,0,4,0,1:main__background-image"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__color"]){window.node_change_main["0,0,0,3:main__color"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-color"]){window.node_change_main["0,0,0,4,0,1:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-color"]){window.node_change_main["0,0,0,3:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-color"]){window.node_change_main["0,0,0,4,1,1:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-color"]){window.node_change_main["0,0,0,4,1,1:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-color"]){window.node_change_main["0,0,0:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-image"]){window.node_change_main["0,0,0,4,0,1:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-color"]){window.node_change_main["0,0,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-color"]){window.node_change_main["0,0,0,6:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-color"]){window.node_change_main["0,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-image"]){window.node_change_main["0,0,0,4,1,1:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-color"]){window.node_change_main["0,0,0,3:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-image"]){window.node_change_main["0,0,0:main__background-image"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-image"]){window.node_change_main["0,0,0,6:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-image"]){window.node_change_main["0,0,0,3:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-image"]){window.node_change_main["0,0:main__background-image"](data);
 }
 };
 
@@ -6027,87 +5961,81 @@ set_data_value(data, "ftd#device" + "." + remaining, new_value);
 set_data_value(data, "ftd#device", new_value);
 }
 
-if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#device"]) {
-let changes = window.ftd.mutable_value_main["ftd#device"].changes;
-for(let i in changes) { changes[i](); }
+window.ftd.call_mutable_value_changes("ftd#device", "main");
+window.ftd.call_immutable_value_changes("ftd#device", "main");
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
 }
-if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#device"]) {
-let changes = window.ftd.immutable_value_main["ftd#device"].changes;
-for(let i in changes) { changes[i](); }
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0:main__width"]){window.node_change_main["0,0,0,4,0:main__width"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1:main__width"]){window.node_change_main["0,0,0,4,1:main__width"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0:main__width"]){window.node_change_main["0,0,0,4,0:main__width"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1:main__width"]){window.node_change_main["0,0,0,4,1:main__width"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
 }
 };
 
