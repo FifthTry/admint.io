@@ -5010,9 +5010,128 @@ else {document.querySelector(`[data-id="0,0:main"]`).style["background-color"] =
 
 window.node_change_main["0,0:main__background-image"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).light));
+document.querySelector(`[data-id="0,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
 }
-else {document.querySelector(`[data-id="0,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).dark));}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).light)));
+}
+else {document.querySelector(`[data-id="0,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
+}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).dark)));}
+}
+
+window.node_change_main["0,0:main__background-position"] = function(data) {
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).light)));
+}
+else {document.querySelector(`[data-id="0,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).dark)));}
+}
+
+window.node_change_main["0,0:main__background-repeat"] = function(data) {
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).light)));
+}
+else {document.querySelector(`[data-id="0,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).dark)));}
+}
+
+window.node_change_main["0,0:main__background-size"] = function(data) {
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).light)));
+}
+else {document.querySelector(`[data-id="0,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.background.overlay", data).dark)));}
 }
 
 window.node_change_main["0,0,0,0:main__color"] = function(data) {
@@ -5024,37 +5143,37 @@ else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["color"] = resolv
 
 window.node_change_main["0,0,0,0:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,0:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,0:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,0:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,0:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 window.node_change_main["0,0,0,1:main__text"] = function(data) {
 document.querySelector(`[data-id="0,0,0,1:main"]`).innerHTML = resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:title:0,0", data);
@@ -5069,37 +5188,37 @@ else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["color"] = resolv
 
 window.node_change_main["0,0,0,1:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
+document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,1:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
+document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,1:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
+document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,1:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
+document.querySelector(`[data-id="0,0,0,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,1:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
+document.querySelector(`[data-id="0,0,0,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.heading-medium", data).mobile)));}
 }
 window.node_change_main["0,0,0,2:main__text"] = function(data) {
 document.querySelector(`[data-id="0,0,0,2:main"]`).innerHTML = resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#signup-form-popup:input-label1:0,0", data);
@@ -5114,37 +5233,37 @@ else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["color"] = resolv
 
 window.node_change_main["0,0,0,2:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,2:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,2:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,2:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,2:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,2:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,2:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,2:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,2:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,2:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 window.node_change_main["0,0,0,3:main__border-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
@@ -5163,12 +5282,12 @@ window.node_change_main["0,0,0,4,0:main__width"] = function(data) {
 if(function(){
 return (resolve_reference("ftd#device", data)=="desktop");
 }()){
-document.querySelector(`[data-id="0,0,0,4,0:main"]`).style["width"] = `{0}`.format(JSONstringify(`{0}%`.format(JSONstringify(48.5))));
+document.querySelector(`[data-id="0,0,0,4,0:main"]`).style["width"] = `{0}`.format(JSON.stringify(`{0}%`.format(JSON.stringify(48.5))));
 }
 else if(function(){
 return (resolve_reference("ftd#device", data)=="mobile");
 }()){
-document.querySelector(`[data-id="0,0,0,4,0:main"]`).style["width"] = `{0}`.format(JSONstringify(`{0}%`.format(JSONstringify(100))));
+document.querySelector(`[data-id="0,0,0,4,0:main"]`).style["width"] = `{0}`.format(JSON.stringify(`{0}%`.format(JSON.stringify(100))));
 }
 else { document.querySelector(`[data-id="0,0,0,4,0:main"]`).style["width"] = null }
 }
@@ -5186,37 +5305,37 @@ else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["color"] = re
 
 window.node_change_main["0,0,0,4,0,0:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,0,0:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,0,0:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,0,0:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,0,0:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 window.node_change_main["0,0,0,4,0,1:main__border-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
@@ -5235,12 +5354,12 @@ window.node_change_main["0,0,0,4,1:main__width"] = function(data) {
 if(function(){
 return (resolve_reference("ftd#device", data)=="desktop");
 }()){
-document.querySelector(`[data-id="0,0,0,4,1:main"]`).style["width"] = `{0}`.format(JSONstringify(`{0}%`.format(JSONstringify(48.5))));
+document.querySelector(`[data-id="0,0,0,4,1:main"]`).style["width"] = `{0}`.format(JSON.stringify(`{0}%`.format(JSON.stringify(48.5))));
 }
 else if(function(){
 return (resolve_reference("ftd#device", data)=="mobile");
 }()){
-document.querySelector(`[data-id="0,0,0,4,1:main"]`).style["width"] = `{0}`.format(JSONstringify(`{0}%`.format(JSONstringify(100))));
+document.querySelector(`[data-id="0,0,0,4,1:main"]`).style["width"] = `{0}`.format(JSON.stringify(`{0}%`.format(JSON.stringify(100))));
 }
 else { document.querySelector(`[data-id="0,0,0,4,1:main"]`).style["width"] = null }
 }
@@ -5258,37 +5377,37 @@ else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["color"] = re
 
 window.node_change_main["0,0,0,4,1,0:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,1,0:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,1,0:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,1,0:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,4,1,0:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,4,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 window.node_change_main["0,0,0,4,1,1:main__border-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
@@ -5316,37 +5435,37 @@ else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["color"] = resolv
 
 window.node_change_main["0,0,0,5:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,5:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,5:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,5:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,5:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,5:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,5:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,5:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
+document.querySelector(`[data-id="0,0,0,5:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,5:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.source-code", data).mobile)));}
 }
 window.node_change_main["0,0,0,6:main__border-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
@@ -5371,7 +5490,7 @@ else { document.querySelector(`[data-id="0,0,0,7:main"]`).style["align-self"] = 
 }
 
 window.node_change_main["0,0,0,7:main__margin-top"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7:main"]`).style["margin-top"] = `{0}`.format(JSONstringify(`{0}rem`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7:main"]`).style["margin-top"] = `{0}rem`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:marginTop:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__display"] = function(data) {
@@ -5425,22 +5544,388 @@ if(function(){
 return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="primary");
 }()){
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).light));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
 }
-else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).dark));}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
+}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).dark)));}
 }
 else if(function(){
 return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="secondary");
 }()){
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).light));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
 }
-else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).dark));}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
+}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).dark)));}
 }
 else {if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).light));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
 }
-else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = `url({0})`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).dark));}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-image"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "src" in bg) {
+let img_src = bg.src;
+if(!data["ftd#dark-mode"] && typeof img_src === 'object' && "light" in img_src) {
+"url(" + img_src.light + ")"
+}
+else if(data["ftd#dark-mode"] && typeof img_src === 'object' && "dark" in img_src){
+"url(" + img_src.dark + ")"
+}
+else {
+null
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).dark)));}
+}
+}
+
+window.node_change_main["0,0,0,7,0:main__background-position"] = function(data) {
+if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="primary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).dark)));}
+}
+else if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="secondary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).dark)));}
+}
+else {if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-position"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "position" in bg) {
+let pos = bg.position;
+if (typeof pos === 'object' && "x" in pos && "y" in pos) {
+pos.x + " " + pos.y
+}
+else {
+pos.replace("-", " ")
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).dark)));}
+}
+}
+
+window.node_change_main["0,0,0,7,0:main__background-repeat"] = function(data) {
+if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="primary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).dark)));}
+}
+else if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="secondary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).dark)));}
+}
+else {if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-repeat"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "repeat" in bg) {
+bg.repeat
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).dark)));}
+}
+}
+
+window.node_change_main["0,0,0,7,0:main__background-size"] = function(data) {
+if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="primary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-primary.base", data).dark)));}
+}
+else if(function(){
+return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", data)=="secondary");
+}()){
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.cta-secondary.base", data).dark)));}
+}
+else {if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).light)));
+}
+else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["background-size"] = eval(`
+let bg = {0};
+if (typeof bg === 'object' && "size" in bg) {
+let sz = bg.size;
+if (typeof sz === 'object' && "x" in sz && "y" in sz) {
+sz.x + " " + sz.y
+}
+else {
+sz
+}
+} else {
+null
+}
+`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-cs#main.custom.four", data).dark)));}
 }
 }
 
@@ -5452,30 +5937,30 @@ else {document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["border-color"]
 }
 
 window.node_change_main["0,0,0,7,0:main__border-radius"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["border-radius"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["border-radius"] = `{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:border-radius:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__padding-bottom"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-bottom"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-bottom"] = `{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__padding-left"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-left"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-left"] = `{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__padding-right"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-right"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-right"] = `{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__padding-top"] = function(data) {
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-top"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["padding-top"] = `{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", data)));
 }
 
 window.node_change_main["0,0,0,7,0:main__width"] = function(data) {
 if(function(){
 return (resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", data)!=null);
 }()){
-document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["width"] = `{0}`.format(JSONstringify(`{0}px`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", data)))));
+document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["width"] = `{0}`.format(JSON.stringify(`{0}px`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:width:0,0,0,7", data)))));
 }
 else { document.querySelector(`[data-id="0,0,0,7,0:main"]`).style["width"] = null }
 }
@@ -5510,37 +5995,37 @@ else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["color"] = re
 
 window.node_change_main["0,0,0,7,0,0:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,7,0,0:main__font-size"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,7,0,0:main__font-weight"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,7,0,0:main__letter-spacing"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 
 window.node_change_main["0,0,0,7,0,0:main__line-height"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
+document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,0,7,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSON.stringify(resolve_reference("fifthtry.github.io/admint-typography#types.button-large", data).mobile)));}
 }
 window.set_value_main = {};
 window.set_value_main["fifthtry.github.io/admint-cs#main"] = function (data, new_value, remaining) {
@@ -5552,37 +6037,37 @@ set_data_value(data, "fifthtry.github.io/admint-cs#main", new_value);
 
 window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
 window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-cs#main", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__color"]){window.node_change_main["0,0,0,3:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
 }
 };
 
@@ -5595,75 +6080,75 @@ set_data_value(data, "fifthtry.github.io/admint-typography#types", new_value);
 
 window.ftd.call_mutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
 window.ftd.call_immutable_value_changes("fifthtry.github.io/admint-typography#types", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
 }
 };
 
@@ -5741,9 +6226,9 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 
 window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", "main");
 window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-horizontal:0,0,0,7", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-right"]){window.node_change_main["0,0,0,7,0:main__padding-right"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-left"]){window.node_change_main["0,0,0,7,0:main__padding-left"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-right"]){window.node_change_main["0,0,0,7,0:main__padding-right"](data);
 }
 };
 
@@ -5756,9 +6241,9 @@ set_data_value(data, "fifthtry.github.io/admint.io/signup-form-popup/#cta-button
 
 window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", "main");
 window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:padding-vertical:0,0,0,7", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-top"]){window.node_change_main["0,0,0,7,0:main__padding-top"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-bottom"]){window.node_change_main["0,0,0,7,0:main__padding-bottom"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__padding-top"]){window.node_change_main["0,0,0,7,0:main__padding-top"](data);
 }
 };
 
@@ -5773,9 +6258,15 @@ window.ftd.call_mutable_value_changes("fifthtry.github.io/admint.io/signup-form-
 window.ftd.call_immutable_value_changes("fifthtry.github.io/admint.io/signup-form-popup/#cta-button:role:0,0,0,7", "main");
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-position"]){window.node_change_main["0,0,0,7,0:main__background-position"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-repeat"]){window.node_change_main["0,0,0,7,0:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-size"]){window.node_change_main["0,0,0,7,0:main__background-size"](data);
 }
 };
 
@@ -5892,65 +6383,107 @@ set_data_value(data, "ftd#dark-mode", new_value);
 
 window.ftd.call_mutable_value_changes("ftd#dark-mode", "main");
 window.ftd.call_immutable_value_changes("ftd#dark-mode", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-image"]){window.node_change_main["0,0,0,4,1,1:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-color"]){window.node_change_main["0,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-color"]){window.node_change_main["0,0,0,6:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-image"]){window.node_change_main["0,0:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-image"]){window.node_change_main["0,0,0,3:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-image"]){window.node_change_main["0,0,0,6:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-image"]){window.node_change_main["0,0,0,4,0,1:main__background-image"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__color"]){window.node_change_main["0,0,0,3:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-color"]){window.node_change_main["0,0,0,4,0,1:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-color"]){window.node_change_main["0,0,0,3:main__background-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-size"]){window.node_change_main["0,0,0:main__background-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-color"]){window.node_change_main["0,0,0,4,1,1:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-position"]){window.node_change_main["0,0,0,4,1,1:main__background-position"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-color"]){window.node_change_main["0,0,0:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-size"]){window.node_change_main["0,0,0,4,1,1:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__color"]){window.node_change_main["0,0,0,4,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-repeat"]){window.node_change_main["0,0,0:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-color"]){window.node_change_main["0,0,0,4,1,1:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-image"]){window.node_change_main["0,0,0,6:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__border-color"]){window.node_change_main["0,0,0,6:main__border-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-image"]){window.node_change_main["0,0,0:main__background-image"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__border-color"]){window.node_change_main["0,0,0,4,0,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-position"]){window.node_change_main["0,0,0,7,0:main__background-position"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-position"]){window.node_change_main["0,0:main__background-position"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-size"]){window.node_change_main["0,0,0,7,0:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__color"]){window.node_change_main["0,0,0,3:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__color"]){window.node_change_main["0,0,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-size"]){window.node_change_main["0,0:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-size"]){window.node_change_main["0,0,0,4,0,1:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-repeat"]){window.node_change_main["0,0,0,4,0,1:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-image"]){window.node_change_main["0,0,0,7,0:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__color"]){window.node_change_main["0,0,0,4,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-repeat"]){window.node_change_main["0,0,0,4,1,1:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-repeat"]){window.node_change_main["0,0,0,3:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__color"]){window.node_change_main["0,0,0,5:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-repeat"]){window.node_change_main["0,0,0,7,0:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-image"]){window.node_change_main["0,0,0,3:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-size"]){window.node_change_main["0,0,0,3:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-position"]){window.node_change_main["0,0,0,4,0,1:main__background-position"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__background-color"]){window.node_change_main["0,0,0,7,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-position"]){window.node_change_main["0,0,0,6:main__background-position"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-color"]){window.node_change_main["0,0,0,6:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__border-color"]){window.node_change_main["0,0,0,4,1,1:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__color"]){window.node_change_main["0,0,0,2:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-size"]){window.node_change_main["0,0,0,6:main__background-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-repeat"]){window.node_change_main["0,0:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__background-repeat"]){window.node_change_main["0,0,0,6:main__background-repeat"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__color"]){window.node_change_main["0,0,0,7,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,6:main__color"]){window.node_change_main["0,0,0,6:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0:main__border-color"]){window.node_change_main["0,0,0,7,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__background-position"]){window.node_change_main["0,0,0:main__background-position"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__color"]){window.node_change_main["0,0,0,4,1,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__color"]){window.node_change_main["0,0,0,4,1,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-image"]){window.node_change_main["0,0:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,1:main__background-image"]){window.node_change_main["0,0,0,4,1,1:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__border-color"]){window.node_change_main["0,0,0,3:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__color"]){window.node_change_main["0,0,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-position"]){window.node_change_main["0,0,0,3:main__background-position"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,1:main__background-image"]){window.node_change_main["0,0,0,4,0,1:main__background-image"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__background-color"]){window.node_change_main["0,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,3:main__background-color"]){window.node_change_main["0,0,0,3:main__background-color"](data);
 }
 };
 
@@ -5963,79 +6496,79 @@ set_data_value(data, "ftd#device", new_value);
 
 window.ftd.call_mutable_value_changes("ftd#device", "main");
 window.ftd.call_immutable_value_changes("ftd#device", "main");
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1:main__width"]){window.node_change_main["0,0,0,4,1:main__width"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0:main__width"]){window.node_change_main["0,0,0,4,0:main__width"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-weight"]){window.node_change_main["0,0,0,4,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-weight"]){window.node_change_main["0,0,0,2:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-family"]){window.node_change_main["0,0,0,2:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-weight"]){window.node_change_main["0,0,0,7,0,0:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0:main__width"]){window.node_change_main["0,0,0,4,0:main__width"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__font-size"]){window.node_change_main["0,0,0,2:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-family"]){window.node_change_main["0,0,0,5:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__line-height"]){window.node_change_main["0,0,0,2:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-family"]){window.node_change_main["0,0,0,7,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__font-size"]){window.node_change_main["0,0,0,7,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,7,0,0:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,7,0,0:main__line-height"]){window.node_change_main["0,0,0,7,0,0:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-family"]){window.node_change_main["0,0,0,4,1,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__line-height"]){window.node_change_main["0,0,0,4,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,2:main__letter-spacing"]){window.node_change_main["0,0,0,2:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-family"]){window.node_change_main["0,0,0,4,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__line-height"]){window.node_change_main["0,0,0,5:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1:main__width"]){window.node_change_main["0,0,0,4,1:main__width"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-weight"]){window.node_change_main["0,0,0,5:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-weight"]){window.node_change_main["0,0,0,4,1,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__font-size"]){window.node_change_main["0,0,0,4,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__font-size"]){window.node_change_main["0,0,0,5:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__font-size"]){window.node_change_main["0,0,0,4,1,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,5:main__letter-spacing"]){window.node_change_main["0,0,0,5:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,4,1,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,4,0,0:main__line-height"]){window.node_change_main["0,0,0,4,0,0:main__line-height"](data);
 }
 };
 
