@@ -2078,9 +2078,38 @@ padding-top.px: 42
 padding-bottom.px: 80
 
 -- ftd.column:
+if: { ftd.device != "mobile"}
 width: fill-container
 max-width.fixed.px: $max-width
 align-self: center
+
+-- ftd.text: $how-it-works.title
+role: $inherited.types.label-large
+color: $inherited.colors.custom.two
+margin-bottom.px: 41
+
+-- ftd.text: $how-it-works.subtitle
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+region: h2
+margin-bottom.px: 28
+
+-- ftd.text:
+if: { ftd.device != "mobile"}
+text: $how-it-works.body
+role: $inherited.types.copy-large
+color: $inherited.colors.text
+margin-bottom.px: 20
+width.fixed.percent: 65
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { ftd.device == "mobile"}
+width: fill-container
+max-width.fixed.px: $max-width
+align-self: center
+padding-horizontal.px: 12
 
 -- ftd.text: $how-it-works.title
 role: $inherited.types.label-large
@@ -2098,7 +2127,7 @@ text: $how-it-works.body
 role: $inherited.types.copy-large
 color: $inherited.colors.text
 margin-bottom.px: 20
-width.fixed.percent: 65
+width: fill-container
 
 -- end: ftd.column
 
@@ -2227,7 +2256,7 @@ height.fixed.px: 120
 
 -- ftd.text: $works-cell-desktop.top-cell
 role: $inherited.types.blockquote
-color: $inherited.colors.text-strong
+color: $inherited.colors.custom.one
 padding-vertical.px: 13
 padding-horizontal.px: 17
 
@@ -2280,6 +2309,8 @@ optional integer reset:
 
 -- ftd.column:
 width: fill-container
+margin-top.px: 25
+margin-bottom.px: 24
 
 -- ftd.row:
 width: fill-container
@@ -2288,22 +2319,26 @@ spacing: space-between
 -- ftd.image:
 if: { works-cell-mobile.left-mob-src == NULL }
 src: $works-cell-mobile.left-src
-width: fill-container
+width.fixed.percent: 27
+height: auto
 
 -- ftd.image:
 if: { works-cell-mobile.left-mob-src != NULL }
 src: $works-cell-mobile.left-mob-src
-width: fill-container
+width.fixed.percent: 27
+height: auto
 
 -- ftd.image:
 if: { works-cell-mobile.right-mob-src == NULL }
 src: $works-cell-mobile.right-src
-width: fill-container
+width.fixed.percent: 27
+height: auto
 
 -- ftd.image:
 if: { works-cell-mobile.right-mob-src != NULL }
 src: $works-cell-mobile.right-mob-src
-width: fill-container
+width.fixed.percent: 27
+height: auto
 
 -- end: ftd.row
 
@@ -2312,9 +2347,10 @@ background.solid: $inherited.colors.border
 padding-vertical.px: 7
 padding-horizontal.px: 12
 width: fill-container
+spacing.fixed.px: 6
 
 -- ftd.row:
-spacing.fixed.px: 6
+spacing.fixed.px: 2
 
 
 -- ftd.integer: $works-cell-mobile.number
@@ -2329,7 +2365,7 @@ color: $inherited.colors.background.step-1
 
 -- ftd.text: $works-cell-mobile.title
 role: $fonts.size-19
-color: $inherited.colors.text
+color: $inherited.colors.background.step-1
 width: fill-container
 
 -- end: ftd.row
@@ -2347,16 +2383,18 @@ text-align: center
 width: fill-container
 
 -- ftd.row:
-width.fixed.px: 75
+width.fixed.percent: 70
 align-self: center
 height.fixed.px: 1
-color: $inherited.colors.border
+background.solid: $inherited.colors.border
+margin-top.px: 10
+margin-bottom.px: 10
 
 -- end: ftd.row
 
 -- ftd.text: $works-cell-mobile.bottom-cell
 role: $inherited.types.blockquote
-color: $inherited.colors.background.step-1
+color: $inherited.colors.text-strong
 text-align: center
 width: fill-container
 

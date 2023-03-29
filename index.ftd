@@ -13,67 +13,6 @@ cta-link: index.html
 
 Build your brand's fan-base in web 3.0 with us!
 
--- lib.slider:
-$active-item: $current-active
-
--- lib.slide: WHY ADMINT? 🚧
-subtitle: Make your brand Web 3.0 ready  via structured campaign phases:
-src: $assets.files.static.lezgoo.simple.svg
-index: 1
-reset: $current-active
-
--- lib.feature-card: 1
-
- Reach out to existing audience base via known channels. 
-
--- lib.feature-card: 2
-
- Identify & segregate your “web 3.0 ready” audience pool. 
-
--- lib.feature-card: 3
-
- Extend real-world benefits & build your metaverse fanbase! 
-
--- end: lib.slide
-
--- lib.full-slide: WHY ADMINT? 🚧
-subtitle: Campaigns are structured to mimic standard known processes:  Planning, Set Up, Execution & Analysis 
-src: $assets.files.static.lezgoo.structured.svg
-index: 2 
-reset: $current-active
-
-Follow along our guided walkthroughs to sequentially construct
-all the necessary components to launch a campaign.
-
--- lib.mid-slide: WHY ADMINT? 🚧
-subtitle: NFTs are our key media vehicle to run  campaigns. You can even mint your own! 
-src: $assets.files.static.lezgoo.keymedia.svg 
-index: 3 
-reset: $current-active
-
-With AdMint you can create your very own custom NFT collection
-or use pre-minted NFTs (if yet unsure!) to power your campaigns.
-
--- lib.four-slide: WHY ADMINT? 🚧
-subtitle: We help you distribute, validate & track  your NFTs via custom tools & templates. A one-stop ad stack! 
-src: $assets.files.static.lezgoo.ditribut.svg
-index: 4 
-reset: $current-active
-
-With AdMint you can create your very own custom NFT collection
-or use pre-minted NFTs (if yet unsure!) to power your campaigns.
-
--- lib.last-slide: WHY ADMINT? 🚧
-subtitle: Analyze & consolidate the strategy that works best for your brand! Run your web 3.0 experiments. 
-src: $assets.files.static.lezgoo.analyze.svg
-index: 5
-reset: $current-active
-
-Watch the numbers. See the plan take shape. Measure that ROI. 
-Stake your claim across the Metaverses!
-
--- end: lib.slider
-
 -- lib.advertising: How advertising in web 3.0 different....
 tagline: **ADVERTISING IN WEB 3.0**
 
@@ -173,11 +112,22 @@ reset: $current-cell
 number: 5
 left-src: $assets.files.static.lezgoo.utility-left-img.svg 
 right-src: $assets.files.static.lezgoo.utility-right-img.svg
-left-mob-src: $assets.files.static.lezgoo.utility-left-mob-img.svg 
-right-mob-src: $assets.files.static.lezgoo.utility-right-mob-img.svg
+left-mob-src: $assets.files.static.lezgoo.utility-left-mob.svg 
+right-mob-src: $assets.files.static.lezgoo.utility-right-mob.svg
 top-cell: You determine the real world value offering to consumers
 bottom-cell: AdMint helps validate NFT ownership & extends access 
 index: 5
+reset: $current-cell
+
+-- lib.works-cell: ANALYTICS
+number: 6
+left-src: $assets.files.static.lezgoo.analytics-left-img.svg 
+right-src: $assets.files.static.lezgoo.analytics-right-img.svg
+left-mob-src: $assets.files.static.lezgoo.analytics-left-mob.svg 
+right-mob-src: $assets.files.static.lezgoo.analytics-right-mob.svg
+top-cell: You define campaign objectives & success metrics
+bottom-cell: AdMint provides web 2.0 & web 3.0 data to analyse your campaign  
+index: 6
 reset: $current-cell
 
 -- end: lib.slider
