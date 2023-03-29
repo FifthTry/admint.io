@@ -16,7 +16,7 @@ Build your brand's fan-base in web 3.0 with us!
 -- lib.slider:
 $active-item: $current-active
 
--- lib.slide: WHY ADMINT? 🚧
+-- lib.first-slide: WHY ADMINT? 🚧
 subtitle: Make your brand Web 3.0 ready  via structured campaign phases:
 src: $assets.files.static.lezgoo.simple.svg
 index: 1
@@ -36,7 +36,7 @@ reset: $current-active
 
 -- end: lib.slide
 
--- lib.full-slide: WHY ADMINT? 🚧
+-- lib.second-slide: WHY ADMINT? 🚧
 subtitle: Campaigns are structured to mimic standard known processes:  Planning, Set Up, Execution & Analysis 
 src: $assets.files.static.lezgoo.structured.svg
 index: 2 
@@ -45,7 +45,7 @@ reset: $current-active
 Follow along our guided walkthroughs to sequentially construct
 all the necessary components to launch a campaign.
 
--- lib.mid-slide: WHY ADMINT? 🚧
+-- lib.third-slide: WHY ADMINT? 🚧
 subtitle: NFTs are our key media vehicle to run  campaigns. You can even mint your own! 
 src: $assets.files.static.lezgoo.keymedia.svg 
 index: 3 

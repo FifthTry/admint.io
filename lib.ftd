@@ -1624,6 +1624,11 @@ width: fill-container
 
 
 
+-- ftd.background-image bg-image: 
+src: $assets.files.static.lezgoo.how-it-works.svg
+position: center-top
+repeat: no-repeat
+
 
 -- component works-cell:
 caption title:
@@ -1635,10 +1640,12 @@ string bottom-cell:
 optional integer index:
 optional integer reset:
 
+
 -- ftd.row:
 if: { works-cell.index == works-cell.reset }
 width: fill-container
 max-width.fixed.px: $max-width
+
 
 -- ftd.image:
 src: $works-cell.left-src
@@ -1669,41 +1676,39 @@ margin-bottom.px: 10
 text-align: center
 
 -- ftd.column:
-anchor: parent
-top.percent: 24
-z-index: -1
 width.fixed.px: 300
-align-content: center
-align-self: center
+background.image: $bg-image
+height.fixed.px: 300
 
--- ftd.image:
+-- ftd.row:
+align-content: center
 width: fill-container
-src: $assets.files.static.lezgoo.how-it-works.svg
-align-self: center
-
--- end: ftd.column
-
--- ftd.column:
-width.fixed.percent: 85
-align-content: center
-min-width.fixed.px: 300
+height.fixed.px: 120
 
 -- ftd.text: $works-cell.top-cell
 role: $inherited.types.blockquote
 color: $inherited.colors.text-strong
 padding-vertical.px: 13
 padding-horizontal.px: 17
-width.fixed.percent: 100
-margin-left.percent: 24
+
+
+-- end: ftd.row
+
+-- ftd.row:
+align-content: center
+width: fill-container
+height.fixed.px: 120
 
 -- ftd.text: $works-cell.bottom-cell
 role: $inherited.types.blockquote
 color: $inherited.colors.background.step-1
 padding-vertical.px: 13
 padding-horizontal.px: 17
-width.fixed.percent: 100
 
+-- end: ftd.row
 -- end: ftd.column
+
+
 
 -- end: ftd.column
 
