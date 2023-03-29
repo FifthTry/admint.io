@@ -129,6 +129,8 @@ $active-item: $current-cell
 number: 1
 right-src: $assets.files.static.lezgoo.planning-right-img.svg 
 left-src: $assets.files.static.lezgoo.planning-left-img.svg
+right-mob-src: $assets.files.static.lezgoo.planning-right-mob.svg 
+left-mob-src: $assets.files.static.lezgoo.planning-left-mob.svg
 top-cell: You choose your brand’s campaign objective 
 bottom-cell: AdMint provides relevant web 3.0 context on the campaign execution.
 index: 1
@@ -138,6 +140,8 @@ reset: $current-cell
 number: 2
 left-src: $assets.files.static.lezgoo.fund-left-img.svg 
 right-src: $assets.files.static.lezgoo.fund-right-img.svg
+left-mob-src: $assets.files.static.lezgoo.fund-left-mob.svg 
+right-mob-src: $assets.files.static.lezgoo.fund-right-mob.svg
 top-cell: You set up funds via standard payment options 
 bottom-cell: AdMint handles your crypto wallets & transfers 
 index: 2
@@ -147,6 +151,8 @@ reset: $current-cell
 number: 3
 left-src: $assets.files.static.lezgoo.nft-left-img.svg 
 right-src: $assets.files.static.lezgoo.nft-right-img.svg
+left-mob-src: $assets.files.static.lezgoo.nft-left-mob.svg 
+right-mob-src: $assets.files.static.lezgoo.nft-right-mob.svg
 top-cell: You provide us creatives to run the campaign
 bottom-cell: AdMint preps & converts them into NFT collections
 index: 3
@@ -156,6 +162,8 @@ reset: $current-cell
 number: 4
 left-src: $assets.files.static.lezgoo.dist-left-img.svg 
 right-src: $assets.files.static.lezgoo.dist-right-img.svg
+left-mob-src: $assets.files.static.lezgoo.dist-left-mob.svg 
+right-mob-src: $assets.files.static.lezgoo.dist-right-mob.svg
 top-cell: You identify target audience to receive the NFTs
 bottom-cell: AdMint provides tools and templates to enable distribution. execution.
 index: 4
@@ -165,6 +173,8 @@ reset: $current-cell
 number: 5
 left-src: $assets.files.static.lezgoo.utility-left-img.svg 
 right-src: $assets.files.static.lezgoo.utility-right-img.svg
+left-mob-src: $assets.files.static.lezgoo.utility-left-mob-img.svg 
+right-mob-src: $assets.files.static.lezgoo.utility-right-mob-img.svg
 top-cell: You determine the real world value offering to consumers
 bottom-cell: AdMint helps validate NFT ownership & extends access 
 index: 5
