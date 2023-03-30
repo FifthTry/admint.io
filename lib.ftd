@@ -2538,6 +2538,14 @@ role: $inherited.types.heading-small
 color: $inherited.colors.text
 max-width.fixed.percent if { ftd.device != "mobile" }: 80
 
+-- ftd.text: 
+if: {$lezgoo.body != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+max-width.fixed.percent if { ftd.device != "mobile" }: 80
+
+$lezgoo.body
+
 -- end: ftd.row
 
 -- ftd.text: $lezgoo.cta-label
