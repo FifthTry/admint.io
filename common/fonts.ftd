@@ -392,6 +392,20 @@ mobile: $size-20-700-type
 
 
 
+-- ftd.type size-22-800-mont-type:
+line-height.px: 22
+size.px: 22
+letter-spacing.px: 0
+weight: 800
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type size-22-800-montserrat:
+desktop: $size-22-800-mont-type
+mobile: $size-22-800-mont-type
+
+
+
+
 
 ;; Colors
 
