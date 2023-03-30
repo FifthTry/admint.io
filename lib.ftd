@@ -4327,15 +4327,14 @@ color: $inherited.colors.background.step-1
 width: fill-container
 
 -- end: ftd.row
-
 -- ftd.column:
 width: fill-container
 padding-vertical.px: 17
 padding-horizontal.px: 10
-
--- ftd.text: $works-cell-mobile.top-cell
 role: $inherited.types.blockquote
 color: $inherited.colors.text-strong
+
+-- ftd.text: $works-cell-mobile.top-cell
 text-align: center
 width: fill-container
 
@@ -4350,12 +4349,8 @@ margin-bottom.px: 10
 -- end: ftd.row
 
 -- ftd.text: $works-cell-mobile.bottom-cell
-role: $inherited.types.blockquote
-color: $inherited.colors.text-strong
 text-align: center
 width: fill-container
-
--- end: ftd.column
 
 -- end: ftd.column
 
