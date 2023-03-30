@@ -2064,7 +2064,6 @@ link: $hero.cta-link
 
 
 
-
 -- component how-it-works:
 caption title:
 string subtitle:
@@ -2077,7 +2076,7 @@ padding-top.px: 42
 padding-bottom.px: 80
 
 -- ftd.column:
-if: { ftd.device != "mobile"}
+if: { ftd.device != "mobile" }
 width: fill-container
 max-width.fixed.px: $max-width
 align-self: center
@@ -2094,7 +2093,7 @@ region: h2
 margin-bottom.px: 28
 
 -- ftd.text:
-if: { ftd.device != "mobile"}
+if: { ftd.device != "mobile" }
 text: $how-it-works.body
 role: $inherited.types.copy-large
 color: $inherited.colors.text
@@ -2104,7 +2103,7 @@ width.fixed.percent: 65
 -- end: ftd.column
 
 -- ftd.column:
-if: { ftd.device == "mobile"}
+if: { ftd.device == "mobile" }
 width: fill-container
 max-width.fixed.px: $max-width
 align-self: center
@@ -2161,7 +2160,7 @@ optional integer reset:
 width: fill-container
 
 -- works-cell-desktop: $works-cell.title
-if: { ftd.device != "mobile"}
+if: { ftd.device != "mobile" }
 number: $works-cell.number
 left-src: $works-cell.left-src
 right-src: $works-cell.right-src
@@ -2171,7 +2170,7 @@ index: $works-cell.index
 reset: $works-cell.reset
 
 -- works-cell-mobile: $works-cell.title
-if: { ftd.device == "mobile"}
+if: { ftd.device == "mobile" }
 number: $works-cell.number
 left-src: $works-cell.left-src
 right-src: $works-cell.right-src
@@ -2186,6 +2185,14 @@ reset: $works-cell.reset
 
 
 -- end: works-cell
+
+
+
+
+
+
+
+
 
 
 -- ftd.background-image bg-image: 
@@ -2294,6 +2301,11 @@ margin-right.px: -44
 
 
 
+
+
+
+
+
 -- component works-cell-mobile:
 caption title:
 integer number:
@@ -2397,10 +2409,7 @@ color: $inherited.colors.text-strong
 text-align: center
 width: fill-container
 
-
 -- end: ftd.column
-
-
 
 -- end: ftd.column
 
