@@ -473,6 +473,7 @@ width: fill-container
 src: $recent-post.thumbnail
 width: fill-container
 height: auto
+link: $recent-post.link
 
 -- ftd.text: $recent-post.title
 role: $fonts.montserrat-18
