@@ -18,6 +18,8 @@ active-tab-index: 1
 
 -- lib.post-list.articles:
 
+-- lib.search:
+
 -- lib.article-item: Metaverse Is The New Playground For Advertisement.
 thumbnail: $assets.files.static.blog.01-2048x1366.jpeg
 link: learn/metaverse-is-the-new-playground-for-advertisement-2/

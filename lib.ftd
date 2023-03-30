@@ -3219,3 +3219,47 @@ right.px: 0
 -- end: ftd.column
 
 -- end: why-nft-card
+
+
+
+
+
+
+
+
+
+
+-- component search:
+
+-- ftd.column:
+width: fill-container
+align-content: right
+margin-bottom.px: 20
+
+-- ftd.row:
+width.fixed.px: 210
+padding.px: 8
+background.solid: $inherited.colors.background.step-1
+border-radius.px: 30
+border-width.px: 1
+border-color: $fonts.3ea880
+align-content: center
+
+-- ftd.text-input:
+background.solid: transparent
+width: fill-container
+placeholder: Search here...
+margin-left.px: 10
+
+-- ftd.image:
+src: $assets.files.static.search-icon.svg
+width.fixed.px: 22
+height: fill-container
+cursor: pointer
+
+-- end: ftd.row
+
+
+-- end: ftd.column
+
+-- end: search
