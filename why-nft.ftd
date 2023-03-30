@@ -1,12 +1,13 @@
 -- import: fifthtry.github.io/admint.io/assets
 -- import: fifthtry.github.io/admint.io/lib
+-- import: fifthtry.github.io/admint.io/common/fonts
 
 
 
 -- lib.page: AdMint - Deliver refreshing Web 3.0 campaigns!
 
--- why-nft-hero: Because NFTs are awesome!
-tagline: WHY NFTs?
+-- lib.why-nft-hero: Because NFTs are awesome!
+tagline: **WHY NFTs?**
 image: $assets.files.static.why-nfts.nft-awesome.svg
 
 NFTs started out cool. And then people started pserceiving them to be nothing
@@ -16,7 +17,7 @@ coins in them, it is up to us what value an NFT should have in them. Think of
 NFTs to be a container that depending on what's inside them, can change the
 experience for the NFT owner. Let's get to know NFTs better.
 
--- why-nft-card: NFTs Offer Value
+-- lib.why-nft-card: NFTs Offer Value
 image: $assets.files.static.why-nfts.neft-offer-value.svg
 
 The other side of the coin really! If something can store value, that value can
@@ -28,13 +29,13 @@ them to...”
 - Try samples / buy exclusive items / vote & comment.
 - Burn NFT for $ value on Ecom & DTC site.
 
--- brand-objective: Brand Objective:
+-- lib.brand-objective: Brand Objective:
 
 Exclusive experiences / Lead generation / Co-creation / Sales
 
--- end: why-nft-card
+-- end: lib.why-nft-card
 
--- why-nft-card: NFTs Track Value
+-- lib.why-nft-card: NFTs Track Value
 image: $assets.files.static.why-nfts.nft-track-value.svg
 
 You can look up all the wallets that have a particular type of NFT across
@@ -45,13 +46,13 @@ brand NFTs!
 - Use NFTs to track wallets & user behavior
 - NFT Profiles based on NFTs owned / spends
 
--- brand-objective: Brand Objective:
+-- lib.brand-objective: Brand Objective:
 
 Determine spends capacity / Exclusive product upsell / Re-targetting.
 
--- end: why-nft-card
+-- end: lib.why-nft-card
 
--- why-nft-card: NFTs Trade Value
+-- lib.why-nft-card: NFTs Trade Value
 image: $assets.files.static.why-nfts.nft-trade-value.svg
 
 NFTs allow for barter / swaps / upgrades / downgrades etc. You can also build
@@ -62,13 +63,13 @@ NFTs highly flexible as a tradeable asset.
 - Use Marketplaces to Swap / Trade/ Drop one for one NFT to drive engagement.
 - NFT collab with partner brands to magnify value-add / build ecosystem.
 
--- brand-objective: Brand Objective:
+-- lib.brand-objective: Brand Objective:
 
 Drive engagement & Increase userbase.
 
--- end: why-nft-card
+-- end: lib.why-nft-card
 
--- why-nft-card: NFTs Stack Value
+-- lib.why-nft-card: NFTs Stack Value
 image: $assets.files.static.why-nfts.NFTs-Stack-Value.svg
 
 NFTs can be built to allow composability. You can merge multiple composableNFTs
@@ -79,14 +80,14 @@ evolutionary models to be built using NFTs.
 - Pro rate ownership of assets
 - Divesting partial assets for $ value
 
--- brand-objective: Brand Objective:
+-- lib.brand-objective: Brand Objective:
 
 Increased consumer base via co-ownership of high net worth goods. Engagement /
 revenue via collectibles & P2E.
 
--- end: why-nft-card
+-- end: lib.why-nft-card
 
--- why-nft-card: NFTs Lend Value
+-- lib.why-nft-card: NFTs Lend Value
 image: $assets.files.static.why-nfts.nft-lend-value.svg
 
 You can structure your NFT to be shared on a time-bound basis to various
@@ -95,83 +96,10 @@ platforms in return for value of access that can be provided by them.
 - Use NFT lending to gain liquidity of assets you want.
 - Pro rate ownership of assets
 
--- brand-objective: Brand Objective:
+-- lib.brand-objective: Brand Objective:
 
 Branding x engagement. Always on-campaign
 
--- end: why-nft-card
+-- end: lib.why-nft-card
 
 -- end: lib.page
-
-
-
-
-
-
-
-
-
-
--- component why-nft-hero:
-caption title:
-string tagline:
-ftd.image-src image:
-body body:
-
--- ftd.column:
-width: fill-container
-
-
--- end: ftd.column
-
--- end: why-nft-hero
-
-
-
-
-
-
-
-
-
-
--- component brand-objective:
-caption title:
-body body:
-
--- ftd.column:
-width: fill-container
-
-
-
--- end: ftd.column
-
--- end: brand-objective
-
-
-
-
-
-
-
-
-
--- component why-nft-card: 
-caption title:
-ftd.image-src image:
-body body:
-children brands:
-
--- ftd.column:
-width: fill-container
-
-
--- ftd.column:
-width: fill-container
-children: $why-nft-card.brands
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: why-nft-card

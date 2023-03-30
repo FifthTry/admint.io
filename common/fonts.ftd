@@ -356,6 +356,43 @@ mobile: $size-27-desktop
 
 
 
+
+-- ftd.type size-24-700-mobile:
+line-height.px: 40
+size.px: 29
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.type size-24-700-desktop:
+line-height.px: 29
+size.px: 24
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type size-24-700:
+desktop: $size-24-700-mobile
+mobile: $size-24-700-desktop
+
+
+
+
+-- ftd.type size-20-700-type:
+line-height.px: 24
+size.px: 20
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type size-20-700:
+desktop: $size-20-700-type
+mobile: $size-20-700-type
+
+
+
+
+
 ;; Colors
 
 -- ftd.color adadad:

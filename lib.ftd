@@ -2988,3 +2988,234 @@ align-self: start
 -- end: ftd.column
 
 -- end: member-feature-card
+
+
+
+
+
+
+
+
+
+
+-- component why-nft-hero:
+caption title:
+string tagline:
+ftd.image-src image:
+body body:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.column:
+if: { ftd.device == "mobile" }
+width: fill-container
+max-width.fixed.px: 1320
+padding-vertical.px: 65
+align-self: center
+padding-horizontal.px: 12
+
+-- ftd.text: $why-nft-hero.tagline
+role: $inherited.types.label-large
+color: $inherited.colors.custom.two
+margin-bottom.px: 41
+
+-- ftd.text: $why-nft-hero.title
+role: $inherited.types.heading-medium
+color: $inherited.colors.text
+region: h3
+margin-bottom.px: 8
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+margin-bottom.px: 20
+
+$why-nft-hero.body
+
+-- end: ftd.column
+
+-- ftd.row:
+if: { ftd.device != "mobile" }
+width: fill-container
+max-width.fixed.px: 1320
+padding-vertical.px: 65
+align-self: center
+
+-- ftd.image:
+src: $why-nft-hero.image
+max-width.fixed.percent: 100
+anchor: parent
+left.px: 0
+bottom.px: 0
+
+-- ftd.column:
+width: fill-container
+margin-left.percent: 42
+
+-- ftd.text: $why-nft-hero.tagline
+role: $inherited.types.label-large
+color: $inherited.colors.custom.two
+margin-bottom.px: 41
+
+-- ftd.text: $why-nft-hero.title
+role: $inherited.types.heading-medium
+color: $inherited.colors.text
+region: h3
+margin-bottom.px: 8
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$why-nft-hero.body
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: why-nft-hero
+
+
+
+
+
+
+
+
+
+
+-- component brand-objective:
+caption title:
+body body:
+
+-- ftd.column:
+width: fill-container
+margin-vertical.px: 20
+padding.px: 20
+background.solid: $inherited.colors.custom.three
+
+-- ftd.text: $brand-objective.title
+role: $fonts.size-20-700
+color: $inherited.colors.custom.four
+region: h5
+margin-bottom.px: 8
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$brand-objective.body
+
+-- end: ftd.column
+
+-- end: brand-objective
+
+
+
+
+
+
+
+
+
+
+-- component why-nft-card: 
+caption title:
+ftd.image-src image:
+body body:
+children brands:
+
+-- ftd.column:
+width: fill-container
+max-width.fixed.px: 1320
+align-self: center
+padding-horizontal.px: 12
+
+-- ftd.column:
+if: { ftd.device == "mobile" }
+width: fill-container
+padding.px: 30
+padding-bottom.px: 0
+margin-bottom.px: 48
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+-- ftd.text: $why-nft-card.title
+role: $fonts.size-24-700
+color: $inherited.colors.custom.one
+region: h4
+margin-bottom.px: 8
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$why-nft-card.body
+
+-- ftd.column:
+width: fill-container
+children: $why-nft-card.brands
+
+-- end: ftd.column
+
+-- ftd.image:
+src: $why-nft-card.image
+max-width.fixed.percent: 100
+
+-- end: ftd.column
+
+-- ftd.row:
+if: { ftd.device != "mobile" }
+width: fill-container
+padding.px: 30
+padding-bottom.px: 0
+margin-bottom.px: 48
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+-- ftd.column:
+width.fixed.percent: 58.33
+
+-- ftd.text: $why-nft-card.title
+role: $fonts.size-24-700
+color: $inherited.colors.custom.one
+region: h4
+margin-bottom.px: 8
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$why-nft-card.body
+
+-- ftd.column:
+width: fill-container
+children: $why-nft-card.brands
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 525
+align-content: bottom-right
+height: fill-container
+padding-top.px: 30
+
+-- ftd.image:
+src: $why-nft-card.image
+max-width.fixed.percent: 100
+anchor: parent
+bottom.px: 0
+right.px: 0
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: why-nft-card
