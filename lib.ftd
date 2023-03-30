@@ -4244,6 +4244,12 @@ spacing.fixed.px: 30
 
 
 
+
+
+
+
+
+
 -- component how-it-works:
 caption title:
 string subtitle:
@@ -4297,6 +4303,10 @@ width: fill-container
 
 
 
+
+
+
+
 -- component works-cell:
 caption title:
 integer number:
@@ -4336,7 +4346,6 @@ reset: $works-cell.reset
 
 -- end: ftd.column
 
-
 -- end: works-cell
 
 
@@ -4352,6 +4361,14 @@ reset: $works-cell.reset
 src: $assets.files.static.lezgoo.how-it-works.svg
 position: center-top
 repeat: no-repeat
+
+
+
+
+
+
+
+
 
 
 -- component works-cell-desktop:
@@ -4405,9 +4422,9 @@ width.fixed.px: 300
 background.image: $bg-image
 height.fixed.px: 300
 align-self: center
+role: $inherited.types.blockquote
 
 -- ftd.text: $works-cell-desktop.top-cell
-role: $inherited.types.blockquote
 color: $inherited.colors.custom.one
 padding-vertical.px: 13
 padding-horizontal.px: 17
@@ -4416,14 +4433,12 @@ height.fixed.px: 120
 text-align: center
 
 -- ftd.text: $works-cell-desktop.bottom-cell
-role: $inherited.types.blockquote
 color: $inherited.colors.background.step-1
 padding-vertical.px: 13
 padding-horizontal.px: 17
 text-align: center
 width: fill-container
 height.fixed.px: 120
-
 
 -- end: ftd.column
 
@@ -4538,6 +4553,3 @@ width: fill-container
 -- end: ftd.column
 
 -- end: works-cell-mobile
-
-
-
