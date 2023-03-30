@@ -387,11 +387,27 @@ mobile: $size-27-desktop
 
 ;; Colors
 
--- ftd.color adadad:
-light: #adadad
-dark: #adadad
+-- ftd.color adadad: #adadad
 
--- ftd.color 44ce9a:
-light: #44ce9a
-dark: #44ce9a
+-- ftd.color 44ce9a: #44ce9a
 
+-- ftd.color 3ea880: #3ea880
+
+
+
+
+
+-- ftd.shadow lezgoo:
+color: #a9a7a5ba
+x-offset.px: -2
+y-offset.px: 10
+blur.px: 10
+inset: false
+spread.px: 10
+
+
+-- ftd.shadow about:
+color: #000
+x-offset.px: 10
+y-offset.px: 10 
+blur.px: 1
