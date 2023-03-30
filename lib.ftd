@@ -3954,18 +3954,14 @@ margin-top.px: 20
 -- ftd.row:
 margin-bottom.px: 13
 spacing.fixed.px: 6
+role: $fonts.montserrat-15-19
+color: $fonts.adadad
 
 -- ftd.text: $search-result.timestamp
-role: $fonts.montserrat-15-19
-color: $fonts.adadad
 
 -- ftd.text: /
-role: $fonts.montserrat-15-19
-color: $fonts.adadad
 
 -- ftd.text: $search-result.comments
-role: $fonts.montserrat-15-19
-color: $fonts.adadad
 
 -- end: ftd.row
 
