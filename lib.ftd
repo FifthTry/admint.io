@@ -3915,7 +3915,7 @@ optional string timestamp:
 optional string comments: No comments
 
 -- ftd.column:
-width.fixed.percent if { ftd.device != "mobile" }: 48
+width.fixed.percent: 48
 width if { ftd.device == "mobile" }: fill-container
 
 -- ftd.column:
