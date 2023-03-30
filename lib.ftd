@@ -3684,40 +3684,8 @@ children works-wrap:
 width: fill-container
 padding-top.px: 42
 padding-bottom.px: 80
-
--- ftd.column:
-if: { ftd.device != "mobile"}
-width: fill-container
-max-width.fixed.px: $max-width
+max-width.fixed.px if { ftd.device != "mobile"}: $max-width
 align-self: center
-
--- ftd.text: $how-it-works.title
-role: $inherited.types.label-large
-color: $inherited.colors.custom.two
-margin-bottom.px: 41
-
--- ftd.text: $how-it-works.subtitle
-role: $inherited.types.heading-medium
-color: $inherited.colors.text-strong
-region: h2
-margin-bottom.px: 28
-
--- ftd.text:
-if: { ftd.device != "mobile"}
-text: $how-it-works.body
-role: $inherited.types.copy-large
-color: $inherited.colors.text
-margin-bottom.px: 20
-width.fixed.percent: 65
-
--- end: ftd.column
-
--- ftd.column:
-if: { ftd.device == "mobile"}
-width: fill-container
-max-width.fixed.px: $max-width
-align-self: center
-padding-horizontal.px: 12
 
 -- ftd.text: $how-it-works.title
 role: $inherited.types.label-large
@@ -3736,8 +3704,7 @@ role: $inherited.types.copy-large
 color: $inherited.colors.text
 margin-bottom.px: 20
 width: fill-container
-
--- end: ftd.column
+width.fixed.percent if { ftd.device != "mobile"}: 65
 
 -- ftd.column:
 children: $how-it-works.works-wrap
