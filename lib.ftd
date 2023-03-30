@@ -10,6 +10,8 @@
 
 -- integer $active-tab: 0
 
+-- integer $current-tab: 1
+
 -- integer $current-active: 1
 
 -- integer $mobileCompPadd: 20
@@ -572,6 +574,7 @@ title: $page.title
 
 -- ftd.column:
 width: fill-container
+$on-mouse-enter$: $common.global-event()
 
 -- header:
 site-name: $page.site-name
@@ -585,7 +588,6 @@ $sidebar-open: $page.sidebar-open
 -- ftd.column:
 children: $page.wrap
 width: fill-container
-$on-mouse-enter$: $common.global-event()
 
 -- end: ftd.column
 
@@ -3730,10 +3732,12 @@ align-self: start
 
 
 
+
 -- component business-card:
 caption title:
 decimal monthly-price:
 decimal annually-price:
+optional string id: 
 
 -- ftd.column:
 width.fixed.percent: 33
@@ -3752,7 +3756,7 @@ color: $inherited.colors.text
 
 -- ftd.row:
 width: fill-container
-id: blurMe
+id: $business-card.id
 spacing.fixed.px: 4
 
 -- ftd.text: \$
@@ -3807,6 +3811,7 @@ color: $inherited.colors.text
 caption title:
 decimal monthly-price:
 decimal annually-price:
+optional string id: 
 
 -- ftd.column:
 width: fill-container
@@ -3842,7 +3847,7 @@ color: $inherited.colors.background.step-1
 
 -- ftd.row:
 width: fill-container
-id: opacityme
+id: $business-plus-card.id
 spacing.fixed.px: 4
 
 -- ftd.text: \$
@@ -3896,8 +3901,8 @@ color: $inherited.colors.background.step-1
 
 
 -- component tab-panel:
-boolean $switch: true
-boolean $active: true
+boolean $switch: false
+boolean $active: false
 children tab-panel-wrap:
 optional integer index:
 optional integer reset:
@@ -3918,7 +3923,7 @@ align-content: center
 
 -- ftd.text: Monthly
 role: $fonts.size-24
-color if { tab-panel.switch }: $inherited.colors.border
+color if { !tab-panel.switch }: $inherited.colors.border
 color: $inherited.colors.custom.one
 
 -- slide-toggle:
@@ -3927,11 +3932,10 @@ $on-click$: $ftd.toggle($a = $tab-panel.active)
 $on-click$: $ftd.toggle($a = $change-prices)
 active: $tab-panel.active
 
-
 -- ftd.text: Annually (Save 25%)
 role: $fonts.size-24
 color: $inherited.colors.custom.one
-color if { !tab-panel.switch }: $inherited.colors.border
+color if { tab-panel.switch }: $inherited.colors.border
 
 -- end: ftd.row
 
@@ -4003,17 +4007,6 @@ children: $business-plan.tabs-warp
 
 
 
--- integer $current-tab: 1
-
-
-
-
-
-
-
-
-
-
 -- component tab-label:
 optional caption title:
 optional boolean $active-item: false
@@ -4055,6 +4048,10 @@ white-space: nowrap
 -- end: ftd.row
 
 -- end: tab-label
+
+
+
+
 
 
 
