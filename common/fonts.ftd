@@ -366,3 +366,11 @@ dark: #adadad
 light: #44ce9a
 dark: #44ce9a
 
+-- ftd.color bdbdbd:
+light: #bdbdbd
+dark: #bdbdbd
+
+-- ftd.color 69f0ae:
+light: #69f0ae
+dark: #69f0ae
+
