@@ -3743,8 +3743,7 @@ optional string id:
 width.fixed.percent: 33
 width if { ftd.device == "mobile" }: fill-container
 background.solid: $inherited.colors.background.step-1
-margin-left.px if { ftd.device != "mobile" }: 16
-margin-right.px if { ftd.device != "mobile" }: 16
+margin-horizontal.px if { ftd.device != "mobile" }: 16
 padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
@@ -3764,12 +3763,8 @@ role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
 -- ftd.decimal: $business-card.monthly-price
-if: { !change-prices }
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
-
--- ftd.decimal: $business-card.annually-price
-if: { change-prices }
+value if { change-prices }: $business-card.annually-price
+value: $business-card.monthly-price
 role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
@@ -3855,14 +3850,10 @@ role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
 -- ftd.decimal: $business-plus-card.monthly-price
-if: { !change-prices }
+value if { change-prices }: $business-plus-card.annually-price
+value: $business-plus-card.monthly-price
 role: $inherited.types.heading-medium
-color: $inherited.colors.background.step-1
-
--- ftd.decimal: $business-plus-card.annually-price
-if: { change-prices }
-role: $inherited.types.heading-medium
-color: $inherited.colors.background.step-1
+color: $inherited.colors.background.step-14
 
 -- end: ftd.row
 
