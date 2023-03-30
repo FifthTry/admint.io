@@ -3748,25 +3748,22 @@ padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
 border-width.px:1
+color: $inherited.colors.text
 
 -- ftd.text: $business-card.title
 role: $fonts.size-18
-color: $inherited.colors.text
 
 -- ftd.row:
 width: fill-container
 id: $business-card.id
 spacing.fixed.px: 4
+role: $inherited.types.heading-medium
 
 -- ftd.text: \$
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
 
 -- ftd.decimal: 
 value if { change-prices }: $business-card.annually-price
 value: $business-card.monthly-price
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -3782,10 +3779,8 @@ spacing.fixed.px: 4
 
 -- ftd.image:
 src: $assets.files.static.pricing.dark-star.svg
-
 -- ftd.text:  Launching Soon 
 role: $inherited.types.copy-regular
-color: $inherited.colors.text
 
 -- end: ftd.row
 
