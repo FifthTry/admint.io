@@ -3869,11 +3869,6 @@ right.px: 0
 -- component search:
 string link: 
 
--- ftd.column:
-width: fill-container
-align-content: right
-margin-bottom.px: 20
-
 -- ftd.row:
 width.fixed.px: 210
 padding.px: 8
@@ -3882,6 +3877,8 @@ border-radius.px: 30
 border-width.px: 1
 border-color: $fonts.3ea880
 align-content: center
+align-self: end
+margin-bottom.px: 20
 
 -- ftd.text-input:
 background.solid: transparent
@@ -3897,9 +3894,6 @@ cursor: pointer
 link: $search.link
 
 -- end: ftd.row
-
-
--- end: ftd.column
 
 -- end: search
 
