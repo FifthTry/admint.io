@@ -226,15 +226,10 @@ desktop: $size-23-desktop
 mobile: $size-23-mobile
 
 
--- ftd.type size-24-regular-mobile:
-line-height.px: 31
-size.px: 23
-letter-spacing.px: 0
-weight: 700
-font-family: $nunito-assets.fonts.Nunito
 
 
--- ftd.type size-24-regular-desktop:
+
+-- ftd.type size-24-regular:
 line-height.px: 31
 size.px: 23
 letter-spacing.px: 0
@@ -242,8 +237,8 @@ font-family: $nunito-assets.fonts.Nunito
 weight: 700
 
 -- ftd.responsive-type size-24-regular:
-desktop: $size-24-regular-desktop
-mobile: $size-24-regular-mobile
+desktop: $size-24-regular
+mobile: $size-24-regular
 
 
 -- ftd.type montserrat-18-mobile:
