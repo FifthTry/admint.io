@@ -4006,14 +4006,12 @@ margin-bottom.px: 30
 -- ftd.row:
 margin-bottom.px: 20
 spacing.fixed.px: 5
+role: $fonts.size-22-800-montserrat
+color: $inherited.colors.custom.one
 
 -- ftd.text: $search-results.title
-role: $fonts.size-22-800-montserrat
-color: $inherited.colors.custom.one
 
 -- ftd.text: $search-results.query
-role: $fonts.size-22-800-montserrat
-color: $inherited.colors.custom.one
 
 -- end: ftd.row
 
