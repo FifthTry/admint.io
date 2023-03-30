@@ -3762,7 +3762,7 @@ spacing.fixed.px: 4
 role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
--- ftd.decimal: $business-card.monthly-price
+-- ftd.decimal: 
 value if { change-prices }: $business-card.annually-price
 value: $business-card.monthly-price
 role: $inherited.types.heading-medium
@@ -3812,8 +3812,7 @@ optional string id:
 width: fill-container
 width.fixed.percent if { ftd.device != "mobile" }: 33
 background.solid: $inherited.colors.border
-margin-left.px if { ftd.device != "mobile" }: 16
-margin-right.px if { ftd.device != "mobile" }: 16
+margin-horizontal.px if { ftd.device != "mobile" }: 16
 padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
@@ -3832,7 +3831,6 @@ align-content: center
 
 -- ftd.image:
 src: $assets.files.static.pricing.plus.svg
-align-self: center
 
 -- end: ftd.column
 
@@ -3849,11 +3847,11 @@ spacing.fixed.px: 4
 role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
--- ftd.decimal: $business-plus-card.monthly-price
+-- ftd.decimal: 
 value if { change-prices }: $business-plus-card.annually-price
 value: $business-plus-card.monthly-price
 role: $inherited.types.heading-medium
-color: $inherited.colors.background.step-14
+color: $inherited.colors.background.step-1
 
 -- end: ftd.row
 
@@ -3963,7 +3961,7 @@ margin-bottom.px: 24
 -- component business-plan:
 optional caption title:
 optional body body:
-children tabs-warp:
+children tabs-wrap:
 
 -- ftd.column:
 width: fill-container
@@ -3981,7 +3979,7 @@ margin-bottom.px: 89
 align-content: center
 width: fill-container
 max-width.fixed.px if { ftd.device != "mobile" }: $max-width
-children: $business-plan.tabs-warp
+children: $business-plan.tabs-wrap
 
 -- end: ftd.row
 
@@ -4033,7 +4031,7 @@ width: fill-container
 if: { tab-label.title != NULL }
 role: $fonts.size-20
 color: $inherited.colors.text
-color if {$current-tab == $tab-label.index}: $inherited.colors.cta-primary.base
+color if { current-tab == $tab-label.index }: $inherited.colors.cta-primary.base
 white-space: nowrap
 
 -- end: ftd.row
@@ -4057,9 +4055,6 @@ width.fixed.px: 40
 z-index: 0
 
 -- ftd.column:
-if: { !slide-toggle.active }
-
--- ftd.column:
 width.fixed.px: 36
 height.fixed.px: 14
 background.solid: $inherited.colors.border
@@ -4074,37 +4069,11 @@ top.px: -3
 left.px: 0
 width.fixed.px: 20
 height.fixed.px: 20
-background.solid: $fonts.bdbdbd
-border-radius.percent: 50 
-z-index: 10
-
--- end: ftd.column
-
--- end: ftd.column
-
--- ftd.column:
-if: { slide-toggle.active }
-
--- ftd.column:
-width.fixed.px: 36 
-height.fixed.px: 14
-background.solid: $inherited.colors.border
-border-radius.px: 8
-z-index: 0
-
--- end: ftd.column
-
--- ftd.column:
-anchor: parent
-top.px: -3
-right.px: 0
-width.fixed.px: 20
-height.fixed.px: 20
+background.solid if { !slide-toggle.active }: $fonts.bdbdbd
 background.solid: $fonts.69f0ae
 border-radius.percent: 50 
 z-index: 10
-
--- end: ftd.column
+left.px if { slide-toggle.active }: 20
 
 -- end: ftd.column
 
