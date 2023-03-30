@@ -355,6 +355,27 @@ mobile: $size-27-desktop
 
 
 
+-- ftd.type size-50-mobile:
+line-height.px: 40
+size.px: 29
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.type size-50-desktop:
+line-height.px: 45
+size.px: 50
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type size-50:
+desktop: $size-50-desktop
+mobile: $size-50-mobile
+
+
+
+
 
 ;; Colors
 

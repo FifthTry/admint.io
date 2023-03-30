@@ -1,11 +1,11 @@
 -- import: fifthtry.github.io/admint.io/common/fonts
 -- import: fifthtry.github.io/admint.io/assets
--- import: fifthtry.github.io/admint.io/lib as io
+-- import: fifthtry.github.io/admint.io/lib as lib
 
 
--- io.page:
+-- lib.page:
 
--- tabs:
+-- tabs: The right plan for your business plan.
 
 -- tab: For Advertisers
 index: 1
@@ -52,7 +52,7 @@ annually-price: 70.98
 
 -- end: tab-panel
 
--- end: io.page
+-- end: lib.page
 
 
 
@@ -286,7 +286,18 @@ width: fill-container
 
 
 -- component tabs:
+optional caption title:
+optional body body:
 children tabs-warp:
+
+-- ftd.column:
+width: fill-container
+padding-vertical.px: 56
+
+-- ftd.text: $tabs.title
+role: $fonts.size-50
+color: $inherited.colors.text
+margin-bottom.px: 89
 
 -- ftd.row:
 align-content: center
@@ -294,6 +305,8 @@ width.fixed.px: 1296
 children: $tabs.tabs-warp
 
 -- end: ftd.row
+
+-- end: ftd.column
 
 -- end: tabs
 
@@ -330,6 +343,7 @@ height.fixed.px: 100
 width.fixed.px: 217
 align-content: center
 align-self: center
+
 
 -- ftd.column:
 anchor: parent
