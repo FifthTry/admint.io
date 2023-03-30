@@ -5,16 +5,16 @@
 
 -- lib.page:
 
--- tabs: The right plan for your business plan.
+-- business-plan: The right plan for your business plan.
 
--- tab: For Advertisers
+-- tab-label: For Agencies
 index: 1
 $active-item: true
 
--- tab: For Agencies
+-- tab-label: For Advertisers
 index: 2
 
--- end: tabs
+-- end: business-plan
 
 -- tab-panel:
 index: 1
@@ -92,12 +92,12 @@ role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
 -- ftd.decimal: $business-card.monthly-price
-if: {!change-prices}
+if: { !change-prices }
 role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
 -- ftd.decimal: $business-card.annually-price
-if: {change-prices}
+if: { change-prices }
 role: $inherited.types.heading-medium
 color: $inherited.colors.text
 
@@ -180,12 +180,12 @@ role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
 -- ftd.decimal: $business-plus-card.monthly-price
-if: {!change-prices}
+if: { !change-prices }
 role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
 -- ftd.decimal: $business-plus-card.annually-price
-if: {change-prices}
+if: { change-prices }
 role: $inherited.types.heading-medium
 color: $inherited.colors.background.step-1
 
@@ -235,16 +235,19 @@ optional integer reset:
 -- ftd.column:
 if: { tab-panel.index == tab-panel.reset }
 width: fill-container
+padding-bottom.px: 56
+max-width.fixed.px: $lib.max-width
+align-self: center
 
 -- ftd.row:
-width.fixed.px: 1296
+width.fixed.px: $lib.max-width
 align-content: right
 padding-vertical.px: 38
 spacing.fixed.px: 24
 
 -- ftd.text: Monthly
 role: $fonts.size-24
-color if { tab-panel.switch}: $inherited.colors.border
+color if { tab-panel.switch }: $inherited.colors.border
 color: $inherited.colors.custom.one
 
 -- ftd.row: 
@@ -262,13 +265,14 @@ active: $tab-panel.active
 -- ftd.text: Annually (Save 25%)
 role: $fonts.size-24
 color: $inherited.colors.custom.one
-color if { !tab-panel.switch}: $inherited.colors.border
+color if { !tab-panel.switch }: $inherited.colors.border
 
 -- end: ftd.row
 
 -- ftd.row:
 children: $tab-panel.tab-panel-wrap
 width: fill-container
+align-self: center
 
 -- end: ftd.row
 
@@ -285,16 +289,18 @@ width: fill-container
 
 
 
--- component tabs:
+-- component business-plan:
 optional caption title:
 optional body body:
 children tabs-warp:
 
 -- ftd.column:
 width: fill-container
-padding-vertical.px: 56
+padding-top.px: 56
+max-width.fixed.px: $lib.max-width
+align-self: center
 
--- ftd.text: $tabs.title
+-- ftd.text: $business-plan.title
 role: $fonts.size-50
 color: $inherited.colors.text
 margin-bottom.px: 89
@@ -302,13 +308,13 @@ margin-bottom.px: 89
 -- ftd.row:
 align-content: center
 width.fixed.px: 1296
-children: $tabs.tabs-warp
+children: $business-plan.tabs-warp
 
 -- end: ftd.row
 
 -- end: ftd.column
 
--- end: tabs
+-- end: business-plan
 
 
 
@@ -330,14 +336,14 @@ children: $tabs.tabs-warp
 
 
 
--- component tab:
+-- component tab-label:
 optional caption title:
 optional boolean $active-item: false
 integer index:
 
 -- ftd.row:
-$on-click$: $ftd.toggle($a = $tab.active-item)
-$on-click$: $ftd.set-integer($a = $current-tab, v = $tab.index)
+$on-click$: $ftd.toggle($a = $tab-label.active-item)
+$on-click$: $ftd.set-integer($a = $current-tab, v = $tab-label.index)
 padding-horizontal.px: 24
 height.fixed.px: 100
 width.fixed.px: 217
@@ -352,22 +358,22 @@ height.fixed.px: 100
 width.fixed.px: 217
 
 -- ftd.image:
-if: {$current-tab == $tab.index}
+if: {$current-tab == $tab-label.index}
 src: $assets.files.static.pricing.tab-highlight.svg
 height.fixed.px: 100
 width.fixed.px: 217
 
 -- end: ftd.column
 
--- ftd.text: $tab.title
-if: { tab.title != NULL }
+-- ftd.text: $tab-label.title
+if: { tab-label.title != NULL }
 role: $inherited.types.copy-large
 color: $inherited.colors.text
-color if {$current-tab == $tab.index}: $inherited.colors.cta-primary.base
+color if {$current-tab == $tab-label.index}: $inherited.colors.cta-primary.base
 
 -- end: ftd.row
 
--- end: tab
+-- end: tab-label
 
 
 
@@ -380,9 +386,6 @@ boolean active:
 -- ftd.column:
 width.fixed.px: 40
 z-index: 0
-
--- ftd.boolean: $slide-toggle.active
-color: black
 
 -- ftd.column:
 if: { !slide-toggle.active }
