@@ -1972,7 +1972,6 @@ $loop$: $footer-desktop.social-links as $obj
 src: $obj.src
 padding-left.px: 20
 cursor: pointer
-link: $obj.link
 
 -- end: ftd.row
 
@@ -2016,7 +2015,6 @@ padding-left.px: 16
 $loop$: $footer-mobile.footer-links as $obj
 role: $inherited.types.label-large
 color: $inherited.colors.background.step-1
-link: $obj.url
 
 -- end: ftd.column
 
@@ -2028,7 +2026,6 @@ padding-left.px: 20
 margin-right.px: 20
 $loop$: $footer-mobile.social-links as $obj
 src: $obj.src
-link: $obj.link
 
 -- end: ftd.row
 
