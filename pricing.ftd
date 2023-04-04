@@ -25,7 +25,8 @@ reset: $lib.current-tab
 -- lib.business-card: BUSINESS
 monthly-price: 56.90
 annually-price: 30.90
-id: blur-business-a
+id: blur-plus-y
+
 
 -- lib.business-plus-card: BUSINESS PLUS
 monthly-price: 189.99

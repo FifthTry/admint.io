@@ -1,9 +1,15 @@
 function loadWindow() {
-  console.log("Page Loaded Successfully...")
+  console.log("Page Loaded Successfully...");
 }
 
 
 window.onload = (event) => {
+  
+  var filteredBlurPlus = document.querySelectorAll("[id='blur-plus-y']");
+ 
+  for(var i = 0; i < filteredBlurPlus.length; i++) 
+  filteredBlurPlus[i].style.filter="blur(6px)"; // <-- whatever you need to do here.
+
   document.getElementById("name-warning") ? document.getElementById("name-warning").style.display = 'none' : "";
   document.getElementById("org-warning") ? document.getElementById("org-warning").style.display = 'none' : "";
   document.getElementById("email-warning") ? document.getElementById("email-warning").style.display = 'none' : "";
@@ -22,7 +28,7 @@ window.onload = (event) => {
   document.getElementById("blur-enterprise-b") ? document.getElementById("blur-enterprise-b").style.filter = "blur(6px)" : ""
   document.getElementById("blur-plus-d") ? document.getElementById("blur-plus-d").style.filter = "blur(6px)" : ""
   document.getElementById("blur-plus-b") ? document.getElementById("blur-plus-b").style.filter = "blur(6px)" : ""
-  document.getElementById("blur-plus-m") ? document.getElementById("blur-plus-m").style.filter = "blur(6px)" : ""
+  
 };
 
 

@@ -3738,16 +3738,15 @@ optional string id:
 
 
 -- ftd.column:
-width.fixed.percent: 33
-width if { ftd.device == "mobile" }: fill-container
+width: fill-container
 background.solid: $inherited.colors.background.step-1
-margin-horizontal.px if { ftd.device != "mobile" }: 12
+margin-horizontal.px: 12
 padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
 border-width.px:1
 color: $inherited.colors.text
-margin-bottom.px if { ftd.device != "mobile" }: 24
+margin-bottom.px: 24
 
 -- ftd.text: $business-card-body.title
 role: $fonts.size-27
@@ -3801,7 +3800,7 @@ role: $inherited.types.copy-regular
 caption title:
 decimal monthly-price:
 decimal annually-price:
-optional string id: 
+optional string id:
 
 -- ftd.column:
 width: fill-container
@@ -3810,13 +3809,13 @@ width: fill-container
 if: { ftd.device == "mobile" }
 monthly-price: $business-card.monthly-price
 annually-price: $business-card.annually-price
-id: blur-plus-m
+id: $business-card.id
 
 -- business-card-body: $business-card.title
-if: { ftd.device == "desktop" }
+if: { ftd.device != "mobile" }
 monthly-price: $business-card.monthly-price
 annually-price: $business-card.annually-price
-id: blur-plus-d
+id: $business-card.id
 
 -- end: ftd.column
 
