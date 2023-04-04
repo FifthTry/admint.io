@@ -513,7 +513,7 @@ font-family: $nunito-assets.fonts.Nunito
 line-height.px: 36
 size.px: 24
 letter-spacing.px: 0
-weight: 400
+weight: 500
 font-family: $nunito-assets.fonts.Nunito
 
 -- ftd.responsive-type size-20:
@@ -568,6 +568,29 @@ font-family: $montserrat-assets.fonts.Montserrat
 
 -- ftd.responsive-type montserrat-16-29: $montserrat-16-29-type
 
+
+
+
+
+
+
+-- ftd.type size-60-mobile:
+line-height.px: 60
+size.px: 29
+letter-spacing.px: 0
+weight: 700
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.type size-60-desktop:
+line-height.px: 60
+size.px: 40
+letter-spacing.px: 0
+font-family: $nunito-assets.fonts.Nunito
+weight: 700
+
+-- ftd.responsive-type size-60:
+desktop: $size-60-desktop
+mobile: $size-60-mobile
 
 
 

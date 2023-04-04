@@ -20,8 +20,9 @@ window.onload = (event) => {
   document.getElementById("blur-business-b") ? document.getElementById("blur-business-b").style.filter = "blur(6px)" : ""
   document.getElementById("blur-enterprise-a") ? document.getElementById("blur-enterprise-a").style.filter = "blur(6px)" : ""
   document.getElementById("blur-enterprise-b") ? document.getElementById("blur-enterprise-b").style.filter = "blur(6px)" : ""
-  document.getElementById("blur-plus-a") ? document.getElementById("blur-plus-a").style.filter = "blur(6px)" : ""
+  document.getElementById("blur-plus-d") ? document.getElementById("blur-plus-d").style.filter = "blur(6px)" : ""
   document.getElementById("blur-plus-b") ? document.getElementById("blur-plus-b").style.filter = "blur(6px)" : ""
+  document.getElementById("blur-plus-m") ? document.getElementById("blur-plus-m").style.filter = "blur(6px)" : ""
 };
 
 

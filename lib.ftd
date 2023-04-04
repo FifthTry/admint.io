@@ -3730,39 +3730,39 @@ right.px: 0
 
 
 
-
-
--- component business-card:
+-- component business-card-body:
 caption title:
 decimal monthly-price:
 decimal annually-price:
 optional string id: 
 
+
 -- ftd.column:
 width.fixed.percent: 33
 width if { ftd.device == "mobile" }: fill-container
 background.solid: $inherited.colors.background.step-1
-margin-horizontal.px if { ftd.device != "mobile" }: 16
+margin-horizontal.px if { ftd.device != "mobile" }: 12
 padding.px: 20
 border-radius.px: 10
 border-color: $inherited.colors.custom.two
 border-width.px:1
 color: $inherited.colors.text
+margin-bottom.px if { ftd.device != "mobile" }: 24
 
--- ftd.text: $business-card.title
-role: $fonts.size-18
+-- ftd.text: $business-card-body.title
+role: $fonts.size-27
 
 -- ftd.row:
 width: fill-container
-id: $business-card.id
+id: $business-card-body.id
 spacing.fixed.px: 4
-role: $inherited.types.heading-medium
+role: $fonts.size-60
 
 -- ftd.text: \$
 
 -- ftd.decimal: 
-value if { change-prices }: $business-card.annually-price
-value: $business-card.monthly-price
+value if { change-prices }: $business-card-body.annually-price
+value: $business-card-body.monthly-price
 
 -- end: ftd.row
 
@@ -3782,6 +3782,41 @@ src: $assets.files.static.pricing.dark-star.svg
 role: $inherited.types.copy-regular
 
 -- end: ftd.row
+
+-- end: ftd.column
+
+
+-- end: business-card-body
+
+
+
+
+
+
+
+
+
+
+-- component business-card:
+caption title:
+decimal monthly-price:
+decimal annually-price:
+optional string id: 
+
+-- ftd.column:
+width: fill-container
+
+-- business-card-body: $business-card.title
+if: { ftd.device == "mobile" }
+monthly-price: $business-card.monthly-price
+annually-price: $business-card.annually-price
+id: blur-plus-m
+
+-- business-card-body: $business-card.title
+if: { ftd.device == "desktop" }
+monthly-price: $business-card.monthly-price
+annually-price: $business-card.annually-price
+id: blur-plus-d
 
 -- end: ftd.column
 
@@ -3851,6 +3886,7 @@ border-radius.px: 10
 border-color: $inherited.colors.custom.two
 border-width.px:1
 color: $inherited.colors.background.step-1
+margin-bottom.px if { ftd.device != "mobile" }: 24
 
 -- ftd.column:
 anchor: parent
@@ -3869,13 +3905,13 @@ src: $assets.files.static.pricing.plus.svg
 -- end: ftd.column
 
 -- ftd.text: $business-plus-card.title
-role: $fonts.size-18
+role: $fonts.size-27
 
 -- ftd.row:
 width: fill-container
 id: $business-plus-card.id
 spacing.fixed.px: 4
-role: $inherited.types.heading-medium
+role: $fonts.size-60
 
 -- ftd.text: \$
 
@@ -3930,6 +3966,7 @@ padding-bottom.px: 56
 max-width.fixed.px if { ftd.device != "mobile" }: $max-width
 align-self: center
 padding-horizontal.px if { ftd.device == "mobile" }: 16
+background.solid: $inherited.colors.background.step-1
 
 -- ftd.row:
 align-self if { ftd.device != "mobile" }: end
@@ -4077,10 +4114,14 @@ children tabs-wrap:
 
 -- ftd.column:
 width: fill-container
+background.solid: $inherited.colors.background.step-1
+
+-- ftd.column:
+width: fill-container
 padding-top.px: 56
 max-width.fixed.px if { ftd.device != "mobile" }: $max-width
 align-self: center
-padding-horizontal.px if { ftd.device == "mobile" }: 12
+padding-horizontal.px: 12
 
 -- ftd.text: $business-plan.title
 role: $fonts.size-50
@@ -4097,13 +4138,18 @@ children: $business-plan.tabs-wrap
 
 -- end: ftd.column
 
+-- end: ftd.column
+
 -- end: business-plan
 
 
 
 
 
-
+-- ftd.background-image tab-active-image: 
+src: $assets.files.static.pricing.tab-highlight.svg
+position: center-top
+repeat: no-repeat
 
 
 
@@ -4125,10 +4171,11 @@ align-self: center
 -- ftd.column:
 anchor: parent
 top.px: 0
+top.px if { ftd.device == "mobile" }: 8
 height.fixed.px: 85
 width.fixed.px: 178
-height.fixed.px if { ftd.device != "mobile" }: 100
-width.fixed.px if { ftd.device != "mobile" }: 217
+height if { ftd.device != "mobile" }: auto
+width if { ftd.device != "mobile" }: auto
 
 -- ftd.image:
 if: { current-tab == $tab-label.index }
@@ -4142,7 +4189,7 @@ width: fill-container
 -- ftd.text: $tab-label.title
 if: { tab-label.title != NULL }
 role: $fonts.size-20
-color: $inherited.colors.text
+color: $inherited.colors.custom.one
 color if { current-tab == $tab-label.index }: $inherited.colors.cta-primary.base
 white-space: nowrap
 
