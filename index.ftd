@@ -26,10 +26,28 @@ Build your brand's fan-base in web 3.0 with us!
 $active-item: $current-active
 
 -- lib.simple-steps: **WHY ADMINT?** 🚧
-subtitle: Make your brand Web 3.0 ready  via structured campaign phases:
+subtitle: Make your brand Web 3.0 ready  
 src: $assets.files.static.carousel.simple.svg
 index: 1
 reset: $current-active
+
+-- simple-steps.title:
+
+-- ftd.container:
+
+-- ftd.text: Make your brand "
+display: inline
+
+-- ftd.text: Web 3.0 ready
+display: inline
+color: green
+
+-- ftd.text: " via structured campaign phases:
+display: inline
+
+-- end: ftd.container
+
+-- end: simple-steps.title
 
 -- lib.feature-card: 1
 

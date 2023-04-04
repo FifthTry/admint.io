@@ -780,22 +780,21 @@ padding-vertical.px: 40
 
 
 
-
-
 -- component simple-steps:
-caption title:
 string subtitle:
 optional body body:
 ftd.image-src src:
 children simple-steps-wrap:
 optional integer index:
 optional integer reset:
+ftd.ui list title:
 
 -- ftd.column:
 width: fill-container
 
--- simple-steps-desktop: $simple-steps.title
-if: { ftd.device != "mobile" }
+-- simple-steps-desktop:
+if: { ftd.device != "mobile" } 
+title: $simple-steps.title
 subtitle: $simple-steps.subtitle
 body: $simple-steps.body
 src: $simple-steps.src
@@ -803,8 +802,9 @@ simple-steps-wrap: $simple-steps.simple-steps-wrap
 index: $simple-steps.index
 reset: $simple-steps.reset
 
--- simple-steps-mobile: $simple-steps.title
+-- simple-steps-mobile:
 if: { ftd.device == "mobile" }
+title: $simple-steps.title
 subtitle: $simple-steps.subtitle
 body: $simple-steps.body
 src: $simple-steps.src
@@ -833,6 +833,7 @@ ftd.image-src src:
 children simple-steps-wrap:
 optional integer index:
 optional integer reset:
+ftd.ui list title:
 
 -- ftd.column:
 if: { simple-steps-desktop.index == simple-steps-desktop.reset }
@@ -844,9 +845,7 @@ width: fill-container
 width: fill-container
 height: fill-container
 
--- ftd.text: $simple-steps-desktop.title
-role: $inherited.types.label-large
-color: $inherited.colors.custom.two
+-- simple-steps-desktop.title.0:
 margin-bottom.px: 41
 
 -- ftd.text: $simple-steps-desktop.subtitle
@@ -868,6 +867,7 @@ margin-bottom.px: 41
 -- ftd.column:
 align-content: center
 align-self: center
+margin-top.px: -56
 
 -- ftd.image:
 src: $simple-steps-desktop.src
@@ -897,26 +897,23 @@ margin-top.px: -73
 
 
 
-
 -- component simple-steps-mobile:
-caption title:
 string subtitle:
 optional body body:
 ftd.image-src src:
 children simple-steps-wrap:
 optional integer index:
 optional integer reset:
+ftd.ui list title:
 
 -- ftd.column:
 width: fill-container
 margin-bottom.px: 16
 padding-horizontal.px: 12
 
--- ftd.text: $simple-steps-mobile.title
-role: $inherited.types.label-large
-color: $inherited.colors.text
+-- simple-steps-mobile.title.0:
 margin-bottom.px: 41
-width: fill-container
+
 
 -- ftd.text: $simple-steps-mobile.subtitle
 role: $inherited.types.heading-medium
