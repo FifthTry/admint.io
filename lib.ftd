@@ -1559,18 +1559,18 @@ padding-vertical.px: 29
 spacing: space-between
 max-width.fixed.px: $max-width
 align-self: center
-padding-horizontal.px: 25
+padding-horizontal.px: 24
 
 -- ftd.row:
 align-self: center
 padding-vertical.px: 5
+link: $navbar-desktop.site-url
 
 -- ftd.image:
 if: { navbar-desktop.site-name == NULL }
 src: $navbar-desktop.site-logo
 width: auto
 height: auto
-link: $navbar-desktop.site-url
 
 -- ftd.text: $navbar-desktop.site-name
 if: {navbar-desktop.site-name != NULL}
@@ -1582,13 +1582,13 @@ link: $navbar-desktop.site-url
 
 -- ftd.row:
 align-self: end
-spacing.fixed.px: 24
+spacing.fixed.px: 38
 
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 44
 align-self: center
-padding-left.px: 3
+
 
 -- sections-list: $obj.title
 url: $obj.url
@@ -1623,7 +1623,6 @@ boolean $is-active: false
 boolean $show-signup: false
 
 -- ftd.row:
-margin-left.px: 11
 
 -- ftd.row:
 background.solid: $inherited.colors.cta-primary.base
