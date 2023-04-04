@@ -1559,7 +1559,7 @@ padding-vertical.px: 29
 spacing: space-between
 max-width.fixed.px: $max-width
 align-self: center
-padding-horizontal.px: 25
+padding-horizontal.px: 24
 
 -- ftd.row:
 align-self: center
@@ -1873,8 +1873,8 @@ align-self: center
 -- end: ftd.column
 
 -- ftd.text: 
-role: $inherited.types.copy-large
-color: $inherited.colors.custom.one
+role: $fonts.copy-large-v2
+color: $fonts.222b27
 margin-top.px: 32
 margin-top.px if {ftd.device == "mobile"}: 31
 margin-bottom.px: 8

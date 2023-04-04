@@ -573,6 +573,29 @@ font-family: $montserrat-assets.fonts.Montserrat
 
 
 
+-- ftd.type copy-large-v2-mobile:
+line-height.px: 28
+size.px: 24
+letter-spacing.px: 0
+weight: 500
+font-family: $nunito-assets.fonts.Nunito
+
+
+-- ftd.type copy-large-v2-desktop:
+line-height.rem: 1.8
+size.rem: 1.5
+letter-spacing.px: 0
+font-family: $nunito-assets.fonts.Nunito
+weight: 500
+
+-- ftd.responsive-type copy-large-v2:
+desktop: $copy-large-v2-desktop
+mobile: $copy-large-v2-mobile
+
+
+
+
+
 -- ftd.color bdbdbd: #bdbdbd
 
 -- ftd.color 69f0ae: #69f0ae
@@ -591,7 +614,7 @@ font-family: $montserrat-assets.fonts.Montserrat
 
 -- ftd.color grey: grey
 
-
+-- ftd.color 222b27: #222b27
 
 
 
