@@ -6,6 +6,7 @@
 -- import: fastn/processors as pr
 
 -- string $selected-item: Advertiser
+-- string $selected-item-medium: Advertiser
 -- integer max-width: 1320
 
 -- pr.sitemap-data sitemap:
@@ -40,7 +41,7 @@ optional string link:
 
 -- ftd.text: $button.title
 if: {button.link != NULL}
-role: $inherited.types.button-large
+role: $fonts.size-27
 color: $inherited.colors.background.step-1
 background.solid: $inherited.colors.cta-primary.base
 padding-horizontal.px: 41
@@ -53,7 +54,7 @@ border-radius.px: 50
 
 -- ftd.text: $button.title
 if: {button.link == NULL}
-role: $inherited.types.button-large
+role: $fonts.size-27
 color: $inherited.colors.background.step-1
 background.solid: $inherited.colors.cta-primary.base
 padding-horizontal.px: 41
@@ -85,7 +86,8 @@ children feature-cards:
 width: fill-container
 background.solid: $inherited.colors.background.base
 align-content: center
-padding-vertical.px: 60
+padding-top.px: 60
+padding-bottom.px: 23
 
 -- ftd.column:
 width: fill-container
@@ -119,7 +121,7 @@ if: { ftd.device == "mobile" }
 width: fill-container
 padding-horizontal.px: 12
 children: $advertisement.feature-cards
-spacing.fixed.px: 20
+spacing.fixed.px: 24
 
 -- end: ftd.column
 
@@ -153,6 +155,7 @@ border-color: $inherited.colors.custom.one
 border-bottom-color if {$advertisement-card.hover-me}: #005fbb
 margin-top.px if {$advertisement-card.hover-me}: -15
 background.solid: $inherited.colors.background.step-1
+margin-bottom.px: -4
 
 -- ftd.image: 
 src: $advertisement-card.src
@@ -679,6 +682,7 @@ children wrap:
 integer $active-item:
 integer max: 5
 integer min: 1
+boolean small-height: false
 
 -- ftd.column:
 width: fill-container
@@ -693,7 +697,7 @@ align-content: center
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 24
-padding-vertical.px: 40
+padding-vertical.px if { !carousel.small-height }: 40
 padding-horizontal.px: 12
 align-content: center
 
@@ -1896,9 +1900,9 @@ align-self: center
 -- ftd.text: 
 role: $fonts.15-18-500
 color: $fonts.222b27
-margin-top.px: 32
+margin-top.px: 31
 margin-top.px if {ftd.device == "mobile"}: 31
-margin-bottom.px: 8
+margin-bottom.px: 6
 text-align: center
 
 $hero.body
@@ -2112,8 +2116,9 @@ integer width: 1320
 width: fill-container
 background.solid: $inherited.colors.background.base
 align-content: center
-padding-vertical.px: 50
+padding-top.px: 52
 padding-horizontal.px: 12
+padding-bottom.px: 50
 
 -- ftd.column:
 width: fill-container
@@ -2137,7 +2142,7 @@ align-self: end
 -- ftd.text: $join-waitlist-form.name-label
 role: $inherited.types.fine-print
 color: $inherited.colors.text
-margin-top.px: 30
+margin-top.px: 32
 
 -- ftd.text-input:
 id: name-input
@@ -2171,7 +2176,7 @@ role: $inherited.types.fine-print
 color: $inherited.colors.text
 
 -- drop-down:
-drop-down-options-list: $common.option-list
+drop-down-options-list: $common.roles
 
 -- end: ftd.column
 
@@ -3408,9 +3413,8 @@ align-self: start
 
 
 -- component drop-down:
-caption title: $selected-item
 boolean $show-options: false
-common.options list drop-down-options-list:
+common.role-record list drop-down-options-list:
 
 -- ftd.column:
 width: fill-container
@@ -3447,7 +3451,7 @@ align-self: center
 
 -- end: ftd.row
 
--- drop-down-options: $drop-down.title
+-- drop-down-options: $selected-item
 drop-down-options-list: $drop-down.drop-down-options-list
 $show-options: $drop-down.show-options
 
@@ -3465,9 +3469,8 @@ $show-options: $drop-down.show-options
 
 
 -- component drop-down-medium:
-caption title: $selected-item
 boolean $show-options: false
-common.options list drop-down-medium-options-list:
+common.role-record list drop-down-medium-options-list:
 
 -- ftd.column:
 width: fill-container
@@ -3476,7 +3479,9 @@ $on-click-outside$: $ftd.set-bool($a = $drop-down-medium.show-options, v = false
 -- ftd.row:
 id: drop-down-medium-input
 align-self: center
-padding.px: 6
+padding-vertical.px: 6
+padding-left.px: 7
+padding-right.px: 3
 border-radius.px: 10
 margin-top.px: 8
 width: fill-container
@@ -3488,21 +3493,22 @@ border-width.px if { drop-down-medium.show-options }: 2
 spacing: space-between
 $on-click$: $ftd.toggle($a = $drop-down-medium.show-options)
 
--- ftd.text: $selected-item
+-- ftd.text: $selected-item-medium
 role: $inherited.types.copy-regular
 color: $inherited.colors.custom.one
 padding-right.px: 52
 min-width.fixed.px: 112
+align-self: center
 
 -- ftd.image:
-src: $assets.files.static.faq.down.svg
+src: $assets.files.static.join-waitlist-form.down.svg
 width.fixed.px: 16
 height: auto
 align-self: center
 
 -- end: ftd.row
 
--- drop-down-medium-options: $drop-down-medium.title
+-- drop-down-medium-options: $selected-item-medium
 drop-down-medium-options-list: $drop-down-medium.drop-down-medium-options-list
 $show-options: $drop-down-medium.show-options
 
@@ -3649,7 +3655,7 @@ $brand-objective.body
 
 -- component drop-down-options:
 caption title:
-common.options list drop-down-options-list:
+common.role-record list drop-down-options-list:
 boolean $mouse-in: false
 boolean $show-options: false
 integer $active-cell: -1
@@ -4349,7 +4355,7 @@ background.solid: $inherited.colors.background.step-1
 
 -- ftd.column:
 width: fill-container
-max-width.fixed.px if { ftd.device != "mobile" }: $max-width
+max-width.fixed.px if { ftd.device != "mobile" }: 1296
 align-self: center
 padding-horizontal.px if { ftd.device == "mobile" }: 12
 
@@ -4362,7 +4368,7 @@ margin-bottom.px: 41
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 region: h2
-margin-bottom.px: 28
+margin-bottom.px: 20
 
 -- how-it-works.subtitle.0:
 
@@ -4372,7 +4378,7 @@ margin-bottom.px: 28
 text: $how-it-works.body
 role: $fonts.nunito-24-36-500-type
 color: $inherited.colors.text
-margin-bottom.px: 20
+margin-bottom.px: 16
 width: fill-container
 width.fixed.percent if { ftd.device != "mobile" }: 65
 
@@ -4481,7 +4487,7 @@ src: $works-cell-desktop.left-src
 padding-right.px: 12
 width: fill-container
 align-self: center
-height: fill-container
+margin-top.px: 17
 
 -- ftd.column:
 width: fill-container
@@ -4494,7 +4500,7 @@ spacing.fixed.px: 6
 role: $fonts.size-19
 color: $inherited.colors.custom.four
 
--- ftd.text: Step
+-- ftd.text: STEP
 
 -- ftd.integer: $works-cell-desktop.number
 
@@ -4510,9 +4516,8 @@ width: fill-container
 -- ftd.column:
 width.fixed.px: 300
 background.image: $bg-image
-height.fixed.px: 244
 align-self: center
-role: $inherited.types.blockquote
+role: $fonts.font-20-400-30
 
 -- ftd.column:
 padding-vertical.px: 13
@@ -4527,27 +4532,36 @@ color: $inherited.colors.custom.one
 -- end: ftd.column
 
 -- ftd.column:
-padding-vertical.px: 13
-padding-horizontal.px: 17
-width: fill-container
-height.fixed.px: 120
 align-content: center
+width: fill-container
 
 -- ftd.text: $works-cell-desktop.bottom-cell
 color: $inherited.colors.background.step-1
+padding-vertical.px: 15
+padding-horizontal.px: 17
+width: fill-container
+height.fixed.px: 107
+
 
 -- end: ftd.column
 
 -- end: ftd.column
 
 -- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+align-self: center
+padding-left.px: 14
+padding-top.px: 16
 
 -- ftd.image:
 src: $works-cell-desktop.right-src
-padding-right.px: 12
-align-self: center
 width: fill-container
+max-height: fill-container
 
+-- end: ftd.column
 
 -- end: ftd.row
 
@@ -4661,7 +4675,7 @@ width: fill-container
 
 
 -- component join-waitlist-popup:
-caption title:
+ftd.ui list title:
 string name-label:
 string name-warning: Name is required
 string identity-label:
@@ -4705,13 +4719,11 @@ color: $inherited.colors.cta-primary.base
 align-self: end
 $on-click$: $ftd.set-bool($a = $join-waitlist-popup.visible, v = false)
 
--- ftd.text: $join-waitlist-popup.title
-role: $fonts.nunito-40
-region: h1
+-- join-waitlist-popup.title.0:
 
 -- ftd.text: $join-waitlist-popup.name-label
 role: $inherited.types.fine-print
-margin-top.px: 34
+margin-top.px: 32
 
 -- ftd.text-input:
 id: user-name-input
@@ -4735,26 +4747,26 @@ spacing: space-between
 width: fill-container
 
 -- ftd.column:
-width.fixed.px: 224
+width.fixed.px: 225
 width if { ftd.device == "mobile" }: fill-container
 
 -- ftd.text: $join-waitlist-popup.identity-label
 role: $inherited.types.fine-print
 color: $inherited.colors.text
-margin-top.px: 16
+margin-top.px: 18
 
--- drop-down:
-drop-down-options-list: $common.option-list
+-- drop-down-medium:
+drop-down-medium-options-list: $common.roles
 
 -- end: ftd.column
 
 -- ftd.column:
-width.fixed.px: 224
+width.fixed.px: 225
 width if { ftd.device == "mobile" }: fill-container
 
 -- ftd.text: $join-waitlist-popup.org-label
 role: $inherited.types.fine-print
-margin-top.px: 16
+margin-top.px: 18
 
 -- ftd.text-input:
 id: user-org-input
@@ -4840,7 +4852,7 @@ Thanks for your interest...We will update you
 
 -- component drop-down-medium-options:
 caption title:
-common.options list drop-down-medium-options-list:
+common.role-record list drop-down-medium-options-list:
 boolean $mouse-in: false
 boolean $show-options: false
 integer $active-cell: -1
@@ -4893,9 +4905,9 @@ boolean $show-options: false
 border-radius.px: 5
 width: fill-container
 padding-left.px: 20
-$on-mouse-enter$: $ftd.set-integer($a = $drop-down-medium-option.active, v = $drop-down-medium.option.idx )
+$on-mouse-enter$: $ftd.set-integer($a = $drop-down-medium-option.active, v = $drop-down-medium-option.idx )
 $on-mouse-leave$: $ftd.set-integer($a = $drop-down-medium-option.active, v = -1 )
-$on-click$: $ftd.set-string($a = $selected-item, v = $drop-down-medium-option.title)
+$on-click$: $ftd.set-string($a = $selected-item-medium, v = $drop-down-medium-option.title)
 $on-click$: $ftd.toggle($a = $drop-down-medium-option.show-options)
 background.solid if { drop-down-medium-option.active == drop-down-medium-option.idx }: #25A6F7
 

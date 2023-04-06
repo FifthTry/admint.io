@@ -341,7 +341,7 @@ mobile: $montserrat-28-mobile
 -- ftd.type nunito-40-desktop:
 line-height.px: 44
 size.px: 40
-letter-spacing.px: -1
+letter-spacing.px: 0
 font-family: $nunito-assets.fonts.Nunito
 weight: 700
 
@@ -672,6 +672,18 @@ weight: 500
 -- ftd.responsive-type 15-18-500:
 desktop: $15-18-500-desktop
 mobile: $15-18-500-mobile
+
+
+
+
+-- ftd.type font-20-400-30-type:
+line-height.px: 30
+size.px: 20
+letter-spacing.px: 0
+weight: 400
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type font-20-400-30: $font-20-400-30-type
 
 
 
