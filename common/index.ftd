@@ -17,7 +17,7 @@ integer min: 0
 integer max: 5
 
 
-a = (((a - min) + by) % (max - min)) + min
+a = (((a - min) + by) % ((max+1)- min)) + min
 
 
 
@@ -30,7 +30,7 @@ integer min: 0
 integer max: 5
 
 
-a = (((a - min) - by) % (max - min)) + min
+a = (((a - min) - by) % ((max+1)- min)) + min
 
 
 
@@ -136,8 +136,8 @@ caption title:
 -- pr.toc-item list footer-links:
 $processor$: pr.toc
 
-- About Us: about/
-- Terms & Condition: terms-conditions/
+- About us: about/
+- Terms & Conditions: terms-conditions/
 - Privacy Policy: privacy-policy/
 - Pricing: /
 - Learn: learn/
@@ -169,3 +169,16 @@ link: /
 src: https://admint.io/facebook.5af5659b1d481d1457d7.svg
 
 -- end: social-links
+
+
+
+
+
+/-- ftd.background-position.length bg-position:
+x.percent: 100
+y.px: -56 
+
+/-- ftd.background-image steps-bg-image: 
+src: $assets.files.static.carousel.simple.svg
+position: right-top
+repeat: no-repeat
