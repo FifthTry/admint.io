@@ -2108,6 +2108,7 @@ string email-warning: Email is requied
 common.role-record list roles: $common.roles
 string cta-text:
 integer width: 1320
+boolean $input-focus: false
 
 -- ftd.column:
 width: fill-container
@@ -2150,7 +2151,10 @@ border-radius.px: 10
 color: $inherited.colors.text
 height.fixed.px: 43
 margin-top.px: 8
+shadow if { join-waitlist-form.input-focus }: $fonts.input-focus
 $on-blur$: $common.form-validate()
+$on-focus$: $ftd.set-bool($a = $join-waitlist-form.input-focus, v = true)
+$on-click-outside$: $ftd.set-bool($a = $join-waitlist-form.input-focus, v = false)
 
 -- ftd.text: $join-waitlist-form.name-warning
 id: name-warning

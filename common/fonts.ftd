@@ -713,6 +713,19 @@ spread.px: 0
 
 
 
+-- ftd.shadow input-focus:
+color: #0d6efd40
+x-offset.px: 0
+y-offset.px: 0
+blur.px: 0
+inset: false
+spread.rem: 0.25
+
+
+
+
+
+
 -- ftd.shadow about:
 color: #000
 x-offset.px: 10
