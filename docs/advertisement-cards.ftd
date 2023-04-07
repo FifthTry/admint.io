@@ -87,9 +87,6 @@ web 3.0 budget?
 
 -- ds.page.body:
 
-We have developed the `advertisement` and `advertisement-card` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
-
 The `advertisement` component accepts `title` and `tagline` attributes. It has
 provision to accept child components. You can add as many as child `advertisement-card`
 components to it. Each `advertisement-card` uses `50%` width of `advertisement` component

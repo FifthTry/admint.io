@@ -25,13 +25,10 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
-We have developed the `how-it-works` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
-
 -- ds.h3: How to use?
 
-The `how-it-works` component accepts `ftd` `child` components also. Check [How it
-works](index.html#how-it-works) of homepage. It have `carousel` as child and
+The `how-it-works` component accepts `ftd` `child` components also. Check [how it
+works](index.html#how-it-works) on homepage. It have `carousel` as child and
 `carousel` items as children. It can be used to add any other components as its
 children. We recommend to close it with `-- end: how-it-works`, if it contains
 multiple childrens.
