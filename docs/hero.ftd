@@ -31,6 +31,15 @@ sections: $lib.sitemap.sections
 `ftd.ui list examples:`
 `ftd.ui list fields:`
 
+
+
+
+Package Name: https://github.com/fastn-community/site-doc
+
+-- site-doc.component-page: 
+
+Comment: `can contain one Or more component doc`
+
 \-- site-doc.component-doc: `lib.hero`
 
 \-- site-doc.component-doc.examples:
@@ -42,11 +51,23 @@ sections: $lib.sitemap.sections
 
 \-- site-doc.component-doc.fields:
 
+\-- site-doc.component-field: `title`
+type: caption
+default: Default
+
+This is a title of the `hero` component shown as big title.
+
+\-- site-doc.component-field: `cta-text`
+type: caption
+default: Default
+
+This is a title of the `button` component shown as big title.
 
 \-- end: site-doc.component-doc.fields
 
 \-- end: site-doc.component-doc
 
+-- end: site-doc.component-page
 
 
 ds.key-value: Type: integer
