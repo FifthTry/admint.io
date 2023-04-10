@@ -25,6 +25,41 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
+-- ds.h1: component name - is always h1
+
+
+`ftd.ui list examples:`
+`ftd.ui list fields:`
+
+\-- site-doc.component-doc: `lib.hero`
+
+\-- site-doc.component-doc.examples:
+
+\-- rendered-code-block
+ example output with title
+
+\-- end: site-doc.component-doc.examples
+
+\-- site-doc.component-doc.fields:
+
+
+\-- end: site-doc.component-doc.fields
+
+\-- end: site-doc.component-doc
+
+
+
+ds.key-value: Type: integer
+Default Value
+1440
+
+
+\-- lib.hero: `<caption>`
+cta-text: `<cta-text>`
+cta-link: https://admint.io/
+
+`<body>`
+
 -- ds.h3: How to use?
 
 To use the `hero` component you need to import `lib.ftd` inside your `.ftd`
@@ -40,7 +75,7 @@ lang: ftd
 Once you import the `lib` inside your `.ftd` file, use the `hero` component by
 adding all required attributes of it.
 
--- ds.rendered:
+-- ds.rendered: Example
 
 -- ds.rendered.input:
 

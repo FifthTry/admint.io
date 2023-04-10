@@ -25,15 +25,44 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
-This document contains various components we have developed using `ftd`
-language.
+-- ds.code:
+lang: ftd
 
-Below are a few sample components:
+\-- site doc: https://github.com/fastn-community/site-doc
+
+\-- site-doc.doc-home: Welcome to your fastn powered website.
+github-url:
+color-scheme:
+typography:
+current-package: site-package-name to be used for import
+
+
+
+Todo:
+
+Welcome to your fastn powered site.
+
+How to install fastn?
+
+\-- blah blah --
+
+How to edit your fastn site on Github?
+
+\-- blah blah --
+
+How to create a new page?
+
+\-- blah blah --
+
+How to update an existing page?
+
+\-- blah blah --
+
+On Doc home page show few iconic components which are perticularly belongs to
+this brand.
+
 
 -- ds.h3: Navbar Component
-
-We have developed the `navbar` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
 
 -- ds.rendered:
 
@@ -60,9 +89,6 @@ sections: $lib.sitemap.sections
 -- end: ds.rendered
 
 -- ds.h3: Hero Component
-
-We have developed the `hero` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
 
 -- ds.rendered:
 

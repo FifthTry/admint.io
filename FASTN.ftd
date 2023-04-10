@@ -29,6 +29,24 @@ favicon: https://fifthtry.github.io/admint.io/favicon.ico
 # Docs: docs/
 skip: true
 
+## Home: docs/
+
+## Pages: docs/blog/
+
+- Blog 🚧: docs/blog/
+- Terms & conditions 🚧: docs/terms-conditions/
+- Privacy Policy 🚧: docs/privacy-policy/
+- Footer: docs/footer/
+- Site Footer: docs/site-footer/
+- Why NFT? 🚧: docs/why-nfts/
+- Pricing 🚧: docs/pricing/
+- Learn 🚧: docs/faq/
+- Brand campaign 🚧: docs/brand-campaign/
+- Advertising-web-3-0 🚧: docs/advertising-web-3-0/
+- Our Team: docs/our-team/
+
+## Components: docs/navbar/
+
 - Navbar: docs/navbar/
 - Hero: docs/hero/
 - Carousel: docs/carousel/
@@ -39,17 +57,7 @@ skip: true
 - Sneak Peak: docs/sneak-peak/
 - Join waitlist form: docs/join-waitlist-form/
 - Join waitlist popup: docs/join-waitlist-popup/
-- Why NFT? 🚧: docs/why-nfts/
 - About: docs/about-us/
 - About Us: docs/about-us/
-- Our Team: docs/our-team/
-- Pricing 🚧: docs/pricing/
-- Learn 🚧: docs/faq/
 - FAQs & Accordion: docs/faq/
-- Brand campaign 🚧: docs/brand-campaign/
-- Advertising-web-3-0 🚧: docs/advertising-web-3-0/
-- Blog 🚧: docs/blog/
-- Terms & conditions 🚧: docs/terms-conditions/
-- Privacy Policy 🚧: docs/privacy-policy/
-- Footer: docs/footer/
-- Site Footer: docs/site-footer/
+
