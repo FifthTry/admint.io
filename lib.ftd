@@ -660,6 +660,8 @@ role: $fonts.font-30-45-700
 color: $inherited.colors.background.step-1
 border-radius.percent: 100
 padding-vertical.px: 14
+height.fixed.px: 73
+width.fixed.px: 73
 padding-horizontal.px: 28
 background.solid: $inherited.colors.cta-primary.base
 
