@@ -562,7 +562,7 @@ caption title: AdMint - Deliver refreshing Web 3.0 campaigns!
 optional string site-name:
 string site-url: index.html
 ftd.image-src site-logo: $assets.files.static.admint-logo.svg
-string contact: Get  Started
+string contact: Get Started
 optional string contact-url:
 pr.toc-item list sections: $sitemap.sections
 boolean $sidebar-open: false
