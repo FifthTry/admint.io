@@ -562,7 +562,7 @@ caption title: AdMint - Deliver refreshing Web 3.0 campaigns!
 optional string site-name:
 string site-url: index.html
 ftd.image-src site-logo: $assets.files.static.admint-logo.svg
-string contact: Get Started
+string contact: Get  Started
 optional string contact-url:
 pr.toc-item list sections: $sitemap.sections
 boolean $sidebar-open: false
@@ -594,6 +594,7 @@ contact-url: $page.contact-url
 sections: $page.sections
 $sidebar-open: $page.sidebar-open
 $show-signup: $page.show-signup
+blog: $page.blog
 
 -- ftd.column:
 children: $page.wrap
@@ -1563,6 +1564,7 @@ string contact-url:
 pr.toc-item list sections: 
 boolean $sidebar-open: false
 boolean $show-signup: false
+boolean blog:
 
 -- ftd.column:
 width: fill-container
@@ -1577,6 +1579,7 @@ contact: $navbar.contact
 contact-url: $navbar.contact-url
 sections: $navbar.sections
 $show-signup: $navbar.show-signup
+blog: $navbar.blog
 
 -- navbar-mobile:
 if: { ftd.device == "mobile" }
@@ -1607,14 +1610,18 @@ optional string contact:
 optional string contact-url:
 pr.toc-item list sections:
 boolean $show-signup: false
+boolean blog:
 
 -- ftd.row:
 width: fill-container
-padding-vertical.px: 29
+padding-vertical.px: 28
+height.fixed.px if { navbar-desktop.blog }: 108
 spacing: space-between
 max-width.fixed.px: $max-width
+max-width.fixed.px if { navbar-desktop.blog }: 1110
 align-self: center
-padding-horizontal.px: 24
+padding-horizontal.px if { !navbar-desktop.blog }: 24
+padding-horizontal.px if { navbar-desktop.blog }: 10
 
 -- ftd.row:
 align-self: center
@@ -1637,23 +1644,27 @@ link: $navbar-desktop.site-url
 
 -- ftd.row:
 align-self: end
-spacing.fixed.px: 38
+spacing.fixed.px if { !navbar-desktop.blog }: 38
+spacing.fixed.px if { navbar-desktop.blog }: 24
 
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 44
+spacing.fixed.px if { navbar-desktop.blog }: 48
 align-self: center
 
 -- sections-list: $obj.title
 url: $obj.url
 is-active: $obj.is-active
 $loop$: $navbar-desktop.sections as $obj
+blog: $navbar-desktop.blog
 
 -- end: ftd.row
 
 -- navbar-button: $navbar-desktop.contact
 url: $navbar-desktop.contact-url
 $show-signup: $navbar-desktop.show-signup
+blog: $navbar-desktop.blog
 
 -- end: ftd.row
 
@@ -1675,25 +1686,48 @@ caption title:
 optional string url: 
 boolean $is-active: false
 boolean $show-signup: false
+boolean blog: false
 
 -- ftd.row:
-background.solid: $inherited.colors.cta-primary.base
+background.solid: $fonts.3ea880
 border-color if {navbar-button.is-active}: $inherited.colors.cta-primary.hover
 border-radius.px: 50
 $on-mouse-enter$: $ftd.set-bool($a = $navbar-button.is-active, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $navbar-button.is-active, v = false)
 padding-vertical.px: 11
+padding-vertical.px if { navbar-button.blog }: 15
 padding-vertical.px if { ftd.device == " mobile" }: 5
 padding-horizontal.px: 35
+padding-horizontal.px if { navbar-button.blog }: 25
 link: $navbar-button.url
 align-self: center
+margin-vertical.rem if { navbar-button.blog }: 0.15
+margin-horizontal.rem if { navbar-button.blog }: 0.15
+border-color: $inherited.colors.border
+
+-- ftd.column:
+if: { !navbar-button.blog }
 
 -- ftd.text: $navbar-button.title
-if: {navbar-button.title != NULL}
+if: { navbar-button.title != NULL }
 role: $fonts.size-27
 color: $inherited.colors.background.step-1
 white-space: nowrap
 $on-click$ if { navbar-button.url == NULL }: $ftd.set-bool($a = $navbar-button.show-signup, v = true)
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { navbar-button.blog }
+
+-- ftd.text: $navbar-button.title
+if: { navbar-button.title != NULL }
+role: $fonts.19-19-500
+color: $inherited.colors.background.step-1
+white-space: nowrap
+$on-click$ if { navbar-button.url == NULL }: $ftd.set-bool($a = $navbar-button.show-signup, v = true)
+
+-- end: ftd.column
 
 -- end: ftd.row
 
@@ -1808,10 +1842,12 @@ $show-signup: $navbar-mobile.show-signup
 caption title:
 optional string url: /
 boolean is-active: false
+boolean blog: false
 
 -- ftd.column:
 
 -- ftd.text: $sections-list.title
+if: { !sections-list.blog }
 color: $inherited.colors.text
 color if {sections-list.is-active}: $inherited.colors.cta-primary.base
 role: $fonts.nunito-30-20-400
@@ -1819,6 +1855,17 @@ link: $sections-list.url
 width: fill-container
 white-space: nowrap
 padding-vertical.px: 8
+
+
+-- ftd.text: $sections-list.title
+if: { sections-list.blog }
+color: $inherited.colors.text
+color if {sections-list.is-active}: $inherited.colors.cta-primary.base
+role: $fonts.20-20-400
+link: $sections-list.url
+width: fill-container
+white-space: nowrap
+padding-vertical.px: 16
 
 -- end: ftd.column
 

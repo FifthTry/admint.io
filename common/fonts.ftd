@@ -751,7 +751,6 @@ font-family: $nunito-assets.fonts.Nunito
 
 
 
-
 -- ftd.type copy-regular-body:
 line-height.px: 24
 size.px: 16
@@ -799,6 +798,36 @@ weight: 700
 font-family: $nunito-assets.fonts.Nunito
 
 -- ftd.responsive-type 30-45-700: $30-45-700-type
+
+
+
+
+
+
+-- ftd.type 19-19-500-type:
+line-height.px: 19
+size.px: 19
+letter-spacing.px: 0
+weight: 500
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type 19-19-500: $19-19-500-type
+
+
+
+
+
+-- ftd.type 20-20-400-type:
+line-height.px: 20
+size.px: 20
+letter-spacing.px: 0
+weight: 400
+font-family: 'Nunito' , sans-serif
+
+-- ftd.responsive-type 20-20-400: $20-20-400-type
+
+
+
 
 
 -- ftd.color 222b27: #222b27
