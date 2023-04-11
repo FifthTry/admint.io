@@ -146,16 +146,16 @@ mobile: $montserrat-14-19-mobile
 line-height.px: 24
 size.px: 16
 letter-spacing.px: 0
-weight: 600
+weight: 400
 font-family: $nunito-assets.fonts.Nunito
 
 
 -- ftd.type size-18-desktop:
-line-height.px: 24
-size.px: 18
+line-height.rem: 1.8
+size.px: 16
 letter-spacing.px: 0
 font-family: $nunito-assets.fonts.Nunito
-weight: 600
+weight: 400
 
 -- ftd.responsive-type size-18:
 desktop: $size-18-desktop
@@ -686,7 +686,7 @@ mobile: $size-33-nunito
 line-height.px: 27
 size.px: 18
 letter-spacing.px: 0
-weight: 700
+weight: 600
 font-family: $nunito-assets.fonts.Nunito
 
 -- ftd.responsive-type button-lg-27:
@@ -829,6 +829,16 @@ font-family: 'Nunito' , sans-serif
 
 
 
+
+
+-- ftd.type 18-18-600-type:
+line-height.px: 18
+size.px: 18
+letter-spacing.px: 0
+weight: 500
+font-family: 'Nunito' , sans-serif
+
+-- ftd.responsive-type 18-18-600: $18-18-600-type
 
 -- ftd.color 222b27: #222b27
 

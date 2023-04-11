@@ -2528,7 +2528,7 @@ background.solid: $inherited.colors.background.step-1
 padding-vertical.px if { ftd.device == "desktop" }: 70
 
 -- ftd.column:
-max-width.fixed.px: 1088
+max-width.fixed.px: 1140
 width: fill-container
 padding.px if { ftd.device == "mobile" }: 20
 align-self: center
@@ -2580,39 +2580,41 @@ classes: markdown
 background.solid: #eeeeee80
 width: fill-container
 spacing: space-between
-padding-horizontal.px: 16
+padding-horizontal.px: 15
 padding-horizontal.px if { ftd.device == "mobile" } : 12
-padding-vertical.px: 13
+padding-vertical.px: 15
 $on-click$: $ftd.toggle($a = $question-accordion.open)
 
 -- ftd.text: $question-accordion.title
-role: $fonts.size-18
+role: $fonts.18-18-600
 color if { question-accordion.open }: $inherited.colors.custom.four
-color: $inherited.colors.custom.one
+color: #000000
 align-self: center
 
 -- ftd.image:
 if: { !question-accordion.open }
 src: $question-accordion.src1
-width.fixed.px: 24
+width.fixed.px: 12
+align-self: center
 
 -- ftd.image:
 if: { question-accordion.open }
 src: $question-accordion.src2
-width.fixed.px: 24
+width.fixed.px: 12
+align-self: center
 
 -- end: ftd.row
 
 -- ftd.column:
 if: { question-accordion.open }
-padding-vertical.px: 12
-padding-horizontal.px: 10
+padding-vertical.px: 15
+padding-horizontal.px: 15
 width: fill-container
 
 -- ftd.text:
-role: $inherited.types.copy-regular
+role: $fonts.size-18
 role if { ftd.device == "mobile" }: $inherited.types.fine-print
-color: $inherited.colors.custom.one
+color: #000000
 
 $question-accordion.body
 
