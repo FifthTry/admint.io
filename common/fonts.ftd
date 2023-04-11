@@ -822,7 +822,7 @@ line-height.px: 20
 size.px: 20
 letter-spacing.px: 0
 weight: 400
-font-family: 'Nunito' , sans-serif
+font-family: $nunito-assets.fonts.Nunito
 
 -- ftd.responsive-type 20-20-400: $20-20-400-type
 

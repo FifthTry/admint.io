@@ -1614,7 +1614,7 @@ boolean blog:
 
 -- ftd.row:
 width: fill-container
-padding-vertical.px: 28
+padding-vertical.px if { !navbar-desktop.blog }: 28
 height.fixed.px if { navbar-desktop.blog }: 108
 spacing: space-between
 max-width.fixed.px: $max-width
@@ -1626,6 +1626,7 @@ padding-horizontal.px if { navbar-desktop.blog }: 10
 -- ftd.row:
 align-self: center
 padding-vertical.px: 5
+padding-vertical.px if { navbar-desktop.blog }: 10
 link: $navbar-desktop.site-url
 
 -- ftd.image:
@@ -1643,15 +1644,17 @@ link: $navbar-desktop.site-url
 -- end: ftd.row
 
 -- ftd.row:
-align-self: end
+align-self if { !navbar-desktop.blog }: end
+align-self: center
 spacing.fixed.px if { !navbar-desktop.blog }: 38
-spacing.fixed.px if { navbar-desktop.blog }: 24
+padding-vertical.px if { navbar-desktop.blog }: 11
+spacing.fixed.px : 24
 
 -- ftd.row:
 width: fill-container
-spacing.fixed.px: 44
-spacing.fixed.px if { navbar-desktop.blog }: 48
+spacing.fixed.px if { !navbar-desktop.blog }: 44
 align-self: center
+spacing.fixed.px: 48
 
 -- sections-list: $obj.title
 url: $obj.url
@@ -1701,9 +1704,9 @@ padding-horizontal.px: 35
 padding-horizontal.px if { navbar-button.blog }: 25
 link: $navbar-button.url
 align-self: center
-margin-vertical.rem if { navbar-button.blog }: 0.15
-margin-horizontal.rem if { navbar-button.blog }: 0.15
-border-color: $inherited.colors.border
+border-width.rem: 0.15
+border-color: $inherited.colors.background.step-1
+margin-right.px if { navbar-button.blog }: 1
 
 -- ftd.column:
 if: { !navbar-button.blog }
@@ -1719,6 +1722,7 @@ $on-click$ if { navbar-button.url == NULL }: $ftd.set-bool($a = $navbar-button.s
 
 -- ftd.column:
 if: { navbar-button.blog }
+width.fixed.percent: 99.8
 
 -- ftd.text: $navbar-button.title
 if: { navbar-button.title != NULL }
@@ -1726,6 +1730,7 @@ role: $fonts.19-19-500
 color: $inherited.colors.background.step-1
 white-space: nowrap
 $on-click$ if { navbar-button.url == NULL }: $ftd.set-bool($a = $navbar-button.show-signup, v = true)
+width.fixed.percent: 99.8
 
 -- end: ftd.column
 
@@ -1846,6 +1851,7 @@ boolean blog: false
 
 -- ftd.column:
 
+
 -- ftd.text: $sections-list.title
 if: { !sections-list.blog }
 color: $inherited.colors.text
@@ -1865,7 +1871,9 @@ role: $fonts.20-20-400
 link: $sections-list.url
 width: fill-container
 white-space: nowrap
-padding-vertical.px: 16
+padding-vertical.px: 17
+
+
 
 -- end: ftd.column
 
@@ -2525,7 +2533,7 @@ width: fill-container
 width: fill-container
 align-content: center
 background.solid: $inherited.colors.background.step-1
-padding-vertical.px if { ftd.device == "desktop" }: 70
+padding-vertical.px if { ftd.device == "desktop" }: 60
 
 -- ftd.column:
 max-width.fixed.px: 1140
