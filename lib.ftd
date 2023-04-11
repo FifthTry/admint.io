@@ -2027,7 +2027,7 @@ width.fixed.px: 195
 height.fixed.px: 48
 
 -- ftd.row:
-margin-top.px: 48
+margin-top.px: 47
 align-self: end
 
 -- ftd.text: $obj.title
@@ -2040,7 +2040,7 @@ link: $obj.url
 -- end: ftd.row
 
 -- ftd.row:
-margin-top.px: 80
+margin-top.px: 81
 align-self: end
 
 -- ftd.image:
@@ -2153,7 +2153,7 @@ padding-bottom.px: 50
 -- ftd.column:
 width: fill-container
 max-width.fixed.px: $join-waitlist-form.width
-margin-left.px if { ftd.device == "desktop" }: 23
+margin-left.px if { ftd.device == "desktop" }: 24
 
 -- ftd.column:
 background.solid: $inherited.colors.cta-primary.text
@@ -2166,6 +2166,8 @@ z-index: 1
 role: $fonts.size-17
 color: $inherited.colors.cta-primary.base
 align-self: end
+margin-top.px: -1
+margin-bottom.px: 1
 
 -- join-waitlist-form.title.0:
 
