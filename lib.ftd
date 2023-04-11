@@ -2680,21 +2680,20 @@ padding-bottom.px: 50
 -- ftd.column:
 width: fill-container
 align-content: center
-max-width.fixed.px: 1440
+max-width.fixed.px: 1320
+padding-horizontal.px: 12
 
 -- ftd.column:
-width if { ftd.device != "mobile" }: fill-container
-align-content: center
-margin-horizontal.px if { ftd.device == "mobile" }: 50
-
--- ftd.image:
-src: $sneak-peak.image
+width.fixed.percent if { ftd.device != "mobile" }: 80
+align-self: center
 border-color: $inherited.colors.custom.one
 border-width.px: 20
 border-width.px if { ftd.device == "mobile" }: 11
 border-radius.px: 46
-width.fixed.percent: 100
-max-width.fixed.px: 1037
+
+-- ftd.image:
+src: $sneak-peak.image
+width: fill-container
 
 -- end: ftd.column
 
@@ -2704,7 +2703,6 @@ spacing: space-between
 width: fill-container
 
 -- ftd.column:
-margin-left.px: 72
 margin-top.px: 153
 
 -- sneak-peak.title.0:
@@ -2760,7 +2758,7 @@ link if { sneak-peak.cta-url != NULL }: $sneak-peak.cta-url
 -- ftd.image:
 src: $sneak-peak.bg-image
 align-self: end
-bottom.px: 48
+bottom.px: 50
 anchor: parent
 
 -- end: ftd.column
