@@ -836,7 +836,7 @@ line-height.px: 18
 size.px: 18
 letter-spacing.px: 0
 weight: 500
-font-family: 'Nunito' , sans-serif
+font-family: $nunito-assets.fonts.Nunito
 
 -- ftd.responsive-type 18-18-600: $18-18-600-type
 
@@ -861,6 +861,8 @@ font-family: 'Nunito' , sans-serif
 -- ftd.color 121a17: #121a17
 
 -- ftd.color grey: #777
+
+-- ftd.color eeeeee80: #eeeeee80
 
 
 

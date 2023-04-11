@@ -145,7 +145,7 @@ ftd.image-src src:
 boolean $hover-me: false
 
 -- ftd.column:
-width.fixed.percent if { ftd.device != "mobile" }: 49
+width.fixed.px if { ftd.device != "mobile" }: 636
 width.fixed.percent if { ftd.device == "mobile" }: 100
 $on-mouse-enter$: $ftd.set-bool($a = $advertisement-card.hover-me, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $advertisement-card.hover-me, v = false)
@@ -155,7 +155,7 @@ border-color: $inherited.colors.custom.one
 border-bottom-color if {$advertisement-card.hover-me}: #005fbb
 margin-top.px if {$advertisement-card.hover-me}: -15
 background.solid: $inherited.colors.background.step-1
-margin-bottom.px: -4
+margin-bottom.px: -5
 
 -- ftd.image: 
 src: $advertisement-card.src
@@ -166,12 +166,12 @@ width.fixed.percent: 80
 padding.px: 35
 
 -- ftd.text: $advertisement-card.title
-role: $fonts.size-29
+role: $fonts.size-24-29-500
 color: $inherited.colors.text
 margin-bottom.px: 8
 
 -- ftd.text:
-role: $inherited.types.copy-regular
+role: $fonts.16-24-400
 color: $inherited.colors.text
 
 $advertisement-card.body
@@ -657,7 +657,7 @@ background.solid: $inherited.colors.custom.three
 align-content: center
 
 -- ftd.integer: $feature-card.title
-role: $fonts.30-45-700
+role: $fonts.font-30-45-700
 color: $inherited.colors.background.step-1
 border-radius.percent: 100
 padding-vertical.px: 14
@@ -1899,6 +1899,7 @@ width: fill-container
 background.solid: $inherited.colors.background.base
 padding-horizontal.px: 10
 padding-vertical.px: 97
+padding-bottom.px: 96
 
 -- ftd.image:
 if: { ftd.device != "mobile" }
@@ -1906,7 +1907,7 @@ src: $assets.files.static.hero.banner-drone.svg
 width.fixed.px: 122
 height.fixed.px: 232
 anchor: parent
-left.px: 0
+left.px: -1
 top.px: 0
 
 -- ftd.image:
@@ -1951,7 +1952,7 @@ width.fixed.px: 380
 height.fixed.px: 183
 anchor: parent
 top.px: 48
-left.px: -65
+left.px: -64
 
 -- ftd.image:
 if: { ftd.device == "mobile" }
@@ -1985,8 +1986,8 @@ align-self: center
 -- ftd.text: 
 role: $fonts.15-18-500
 color: $fonts.222b27
-margin-top.px: 31
-margin-top.px if {ftd.device == "mobile"}: 31
+margin-top.px: 32
+margin-top.px if {ftd.device == "mobile"}: 32
 margin-bottom.px: 6
 text-align: center
 
@@ -2081,7 +2082,7 @@ width.fixed.px: 195
 height.fixed.px: 48
 
 -- ftd.row:
-margin-top.px: 48
+margin-top.px: 47
 align-self: end
 
 -- ftd.text: $obj.title
@@ -2094,7 +2095,7 @@ link: $obj.url
 -- end: ftd.row
 
 -- ftd.row:
-margin-top.px: 80
+margin-top.px: 81
 align-self: end
 
 -- ftd.image:
@@ -2207,7 +2208,7 @@ padding-bottom.px: 50
 -- ftd.column:
 width: fill-container
 max-width.fixed.px: $join-waitlist-form.width
-margin-left.px if { ftd.device == "desktop" }: 23
+margin-left.px if { ftd.device == "desktop" }: 24
 
 -- ftd.column:
 background.solid: $inherited.colors.cta-primary.text
@@ -2220,6 +2221,8 @@ z-index: 1
 role: $fonts.size-17
 color: $inherited.colors.cta-primary.base
 align-self: end
+margin-top.px: -1
+margin-bottom.px: 1
 
 -- join-waitlist-form.title.0:
 
@@ -2585,7 +2588,7 @@ align-content: center
 classes: markdown
 
 -- ftd.row:
-background.solid: #eeeeee80
+background.solid: $fonts.eeeeee80
 width: fill-container
 spacing: space-between
 padding-horizontal.px: 15
@@ -2596,7 +2599,7 @@ $on-click$: $ftd.toggle($a = $question-accordion.open)
 -- ftd.text: $question-accordion.title
 role: $fonts.18-18-600
 color if { question-accordion.open }: $inherited.colors.custom.four
-color: #000000
+color: $inherited.colors.custom.one
 align-self: center
 
 -- ftd.image:
@@ -2622,7 +2625,7 @@ width: fill-container
 -- ftd.text:
 role: $fonts.size-18
 role if { ftd.device == "mobile" }: $inherited.types.fine-print
-color: #000000
+color: $inherited.colors.custom.one
 
 $question-accordion.body
 
@@ -2736,21 +2739,20 @@ padding-bottom.px: 50
 -- ftd.column:
 width: fill-container
 align-content: center
-max-width.fixed.px: 1440
+max-width.fixed.px: 1320
+padding-horizontal.px: 12
 
 -- ftd.column:
-width if { ftd.device != "mobile" }: fill-container
-align-content: center
-margin-horizontal.px if { ftd.device == "mobile" }: 50
-
--- ftd.image:
-src: $sneak-peak.image
+width.fixed.percent if { ftd.device != "mobile" }: 80
+align-self: center
 border-color: $inherited.colors.custom.one
 border-width.px: 20
 border-width.px if { ftd.device == "mobile" }: 11
 border-radius.px: 46
-width.fixed.percent: 100
-max-width.fixed.px: 1037
+
+-- ftd.image:
+src: $sneak-peak.image
+width: fill-container
 
 -- end: ftd.column
 
@@ -2760,7 +2762,6 @@ spacing: space-between
 width: fill-container
 
 -- ftd.column:
-margin-left.px: 72
 margin-top.px: 153
 
 -- sneak-peak.title.0:
@@ -2816,7 +2817,7 @@ link if { sneak-peak.cta-url != NULL }: $sneak-peak.cta-url
 -- ftd.image:
 src: $sneak-peak.bg-image
 align-self: end
-bottom.px: 48
+bottom.px: 50
 anchor: parent
 
 -- end: ftd.column
@@ -3643,7 +3644,7 @@ $show-options: $drop-down-medium.show-options
 
 
 -- component why-nft-hero:
-caption title:
+ftd.ui list title:
 string tagline:
 ftd.image-src image:
 body body:
@@ -3665,12 +3666,7 @@ padding-horizontal.px: 12
 role: $inherited.types.label-large
 color: $inherited.colors.custom.two
 
--- ftd.text: $why-nft-hero.title
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
-margin-top.px: 41
-region: h3
-margin-bottom.px: 8
+-- why-nft-hero.title.0:
 
 -- ftd.text:
 role: $inherited.types.copy-regular
@@ -3698,7 +3694,7 @@ bottom.px: 0
 
 -- ftd.column:
 width: fill-container
-margin-left.percent: 42.25
+margin-left.percent: 42.33
 
 -- ftd.text: $why-nft-hero.tagline
 role: $inherited.types.label-large
@@ -3707,12 +3703,7 @@ style if { why-nft-hero.hover-me }: underline
 $on-mouse-enter$: $ftd.set-bool($a = $why-nft-hero.hover-me, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $why-nft-hero.hover-me, v = false)
 
--- ftd.text: $why-nft-hero.title
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
-margin-top.px: 41
-region: h3
-margin-bottom.px: 8
+-- why-nft-hero.title.0:
 
 -- ftd.text:
 role: $fonts.copy-regular-body
@@ -3764,7 +3755,7 @@ body body:
 
 -- ftd.column:
 width: fill-container
-margin-top.px: 9
+margin-top.px: 12
 padding.px: 20
 background.solid: $inherited.colors.custom.three
 
@@ -3774,7 +3765,7 @@ color: $inherited.colors.custom.four
 region: h5
 
 -- ftd.text:
-margin-top.px: 10
+margin-top.px: 8
 role: $fonts.copy-regular-bodyV3
 color: $inherited.colors.custom.one
 
@@ -3783,6 +3774,11 @@ $brand-objective.body
 -- end: ftd.column
 
 -- end: brand-objective
+
+
+
+
+
 
 
 
@@ -4658,12 +4654,13 @@ margin-right.px: 13
 width: fill-container
 padding-horizontal.px: 12
 margin-left.px: -13
+margin-top.px: 1
 
 -- ftd.row:
 width: fill-container
 align-content: center
-spacing.fixed.px: 6
-role: $fonts.size-19
+spacing.fixed.px: 5
+role: $fonts.size-19-28-700
 color: $inherited.colors.custom.four
 
 -- ftd.text: STEP
@@ -5124,3 +5121,24 @@ text-align: center
 
 
 -- end: site-footer
+
+
+
+
+
+
+
+
+
+
+-- component page-wrapper:
+children child:
+
+-- ftd.column:
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+children: $page-wrapper.child
+
+-- end: ftd.column
+
+-- end: page-wrapper
