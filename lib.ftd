@@ -4602,12 +4602,13 @@ margin-right.px: 13
 width: fill-container
 padding-horizontal.px: 12
 margin-left.px: -13
+margin-top.px: 1
 
 -- ftd.row:
 width: fill-container
 align-content: center
-spacing.fixed.px: 6
-role: $fonts.size-19
+spacing.fixed.px: 5
+role: $fonts.size-19-28-700
 color: $inherited.colors.custom.four
 
 -- ftd.text: STEP
