@@ -832,6 +832,19 @@ font-family: $nunito-assets.fonts.Nunito
 -- ftd.responsive-type 30-45-700: $30-45-700-type
 
 
+
+
+-- ftd.type size-24-29-500-type:
+line-height.px: 29
+size.px: 24
+letter-spacing.px: 0
+weight: 500
+font-family: $nunito-assets.fonts.Nunito
+
+-- ftd.responsive-type size-24-29-500: $size-24-29-500-type
+
+
+
 -- ftd.color 222b27: #222b27
 
 -- ftd.color bdbdbd: #bdbdbd

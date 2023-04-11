@@ -145,7 +145,7 @@ ftd.image-src src:
 boolean $hover-me: false
 
 -- ftd.column:
-width.fixed.percent if { ftd.device != "mobile" }: 49
+width.fixed.px if { ftd.device != "mobile" }: 636
 width.fixed.percent if { ftd.device == "mobile" }: 100
 $on-mouse-enter$: $ftd.set-bool($a = $advertisement-card.hover-me, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $advertisement-card.hover-me, v = false)
@@ -155,7 +155,7 @@ border-color: $inherited.colors.custom.one
 border-bottom-color if {$advertisement-card.hover-me}: #005fbb
 margin-top.px if {$advertisement-card.hover-me}: -15
 background.solid: $inherited.colors.background.step-1
-margin-bottom.px: -4
+margin-bottom.px: -5
 
 -- ftd.image: 
 src: $advertisement-card.src
@@ -166,12 +166,12 @@ width.fixed.percent: 80
 padding.px: 35
 
 -- ftd.text: $advertisement-card.title
-role: $fonts.size-29
+role: $fonts.size-24-29-500
 color: $inherited.colors.text
 margin-bottom.px: 8
 
 -- ftd.text:
-role: $inherited.types.copy-regular
+role: $fonts.16-24-400
 color: $inherited.colors.text
 
 $advertisement-card.body
