@@ -111,7 +111,7 @@ display: inline-block
 -- ftd.text: standard known processes:
 display: inline-block
 color: $inherited.colors.border
-margin-horizontal.px: 10
+margin-horizontal.px: 11
 
 -- ftd.text: Planning, Set Up, Execution & Analysis
 display: inline-block
