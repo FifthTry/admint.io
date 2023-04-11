@@ -239,7 +239,7 @@ role: $inherited.types.heading-tiny
 color: $inherited.colors.cta-primary.base
 region: h1
 display: inline
-margin-left.px: 8
+margin-left.rem: 0.48
 
 -- end: ftd.container
 
