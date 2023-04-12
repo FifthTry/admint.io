@@ -17,10 +17,9 @@ types: $typo.types
 $widthfill: true
 sections: $lib.sitemap.sections
 
-
 -- ds.page.footer:
 
--- lib.site-footer: Copyright © 2022 Admint
+-- docs.footer:
 
 -- end: ds.page.footer
 
@@ -49,10 +48,7 @@ by adding all required attributes of it.
 
 -- ds.rendered.output:
 
--- ftd.text: 👇 Look at footer of this page 👇
-role: $inherited.types.copy-large
-color: $inherited.colors.text-strong
-padding-vertical.px: 20
+-- lib.site-footer: Copyright © 2022 Admint
 
 -- end: ds.rendered.output
 
