@@ -25,7 +25,7 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use `join-waitlist-popup` component you need to `import` `lib` inside your
 `.ftd` file

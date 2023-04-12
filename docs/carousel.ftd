@@ -193,7 +193,7 @@ Stake your claim across the Metaverses!
 
 -- ds.page.body:
 
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use `carousel` component you need to `import` `lib` inside you `.ftd` file.
 

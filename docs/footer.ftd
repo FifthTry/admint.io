@@ -31,7 +31,7 @@ team-thumb: $assets.files.static.footer.footer-hand-thumb.svg
 
 -- ds.page.body:
 
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use the `footer` component you need to import `lib.ftd` & `common`  inside
 your `.ftd` file. The `footer` component uses `footer-links` and `social-links`

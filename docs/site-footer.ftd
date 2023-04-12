@@ -26,7 +26,7 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use the `site-footer` component you need to import `lib.ftd` inside your `.ftd`
 file.

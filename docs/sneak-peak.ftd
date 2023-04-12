@@ -63,7 +63,7 @@ display: inline
 
 -- ds.page.body:
 
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use the `sneak-peak` component you need to import `lib.ftd` inside your `.ftd`
 file, as shown below:
