@@ -97,10 +97,7 @@ reset: $current-active
 
 -- ds.page.body:
 
-We have developed the `carousel` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
-
--- ds.h3: How to use?
+-- ds.h1: How to use?
 
 To use `carousel` component you need to `import` `lib` inside your `.ftd` file.
 

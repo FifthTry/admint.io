@@ -25,19 +25,19 @@ sections: $lib.sitemap.sections
 
 -- ds.page.body:
 
-We have developed the `how-it-works` component for [admint.io](https://admint.io/), 
-which matches the design currently displayed on the live site.
+-- ds.h1: How to use?
 
--- ds.h3: How to use?
+The `how-it-works` component is capable of accepting `ftd` child components. 
+You can see an example of this by checking the 
+[how-it-works](index.html#how-it-works) on the homepage. It has `carousel` 
+as child and `carousel` items as children. It can be used to add any other 
+components as it's children. 
 
-The `how-it-works` component accepts `ftd` `child` components also. Check [How it
-works](index.html#how-it-works) of homepage. It have `carousel` as child and
-`carousel` items as children. It can be used to add any other components as its
-children. We recommend to close it with `-- end: how-it-works`, if it contains
-multiple childrens.
+We recommend to close it with `-- end: how-it-works`, if it contains multiple 
+children.
 
-To use the `how-it-works` component you need to import `lib.ftd` inside your `.ftd`
-file, as shown below:
+To use the `how-it-works` component you need to import `lib.ftd` inside your
+`.ftd` file, as shown below:
 
 -- ds.code:
 lang: ftd
@@ -46,8 +46,8 @@ lang: ftd
 
 -- ds.markdown:
 
-Once you import the `lib` inside your `.ftd` file, use the `how-it-works` component by
-adding all required attributes of it.
+Once you import the `lib` inside your `.ftd` file, use the `how-it-works`
+component by adding all required attributes of it.
 
 -- ds.rendered:
 
