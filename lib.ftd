@@ -1708,7 +1708,6 @@ link: $navbar-button.url
 align-self: center
 border-width.rem if { navbar-button.blog }: 0.15
 border-color if { navbar-button.blog }: $inherited.colors.background.step-1
-margin-right.px if { navbar-button.blog }: 1
 
 -- ftd.column:
 if: { !navbar-button.blog }
@@ -1871,7 +1870,8 @@ role: $fonts.font-20-20-400
 link: $sections-list.url
 width: fill-container
 white-space: nowrap
-padding-vertical.px: 17
+padding-top.px: 15
+padding-bottom.px: 16
 
 -- end: ftd.column
 
