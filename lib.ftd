@@ -2537,9 +2537,9 @@ width: fill-container
 width: fill-container
 align-content: center
 background.solid: $inherited.colors.background.step-1
-padding-top.px if { ftd.device == "desktop" }: 60
+padding-top.px if { ftd.device == "desktop" }: 75
 padding-bottom.px if { ftd.device == "desktop" }: 37
-margin-top.rem: 0.99
+
 
 -- ftd.column:
 max-width.fixed.px: 1140
