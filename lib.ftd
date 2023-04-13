@@ -2500,9 +2500,9 @@ string link:
 -- ftd.column:
 
 -- ftd.text: $tab.title
-padding-top.px if { !tab.active }: 20
+padding-top.px if { !tab.active }: 16
 padding-vertical.px if { tab.active }: 20
-padding-bottom.px if { !tab.active }: 22
+padding-bottom.px if { !tab.active }: 20
 padding-horizontal.px: 30
 color: $inherited.colors.custom.one
 role: $fonts.font-18-18-600
