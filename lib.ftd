@@ -5247,6 +5247,7 @@ string email-warning: Email is requied
 common.role-record list roles: $common.roles
 string cta-text:
 boolean $visible: false
+boolean $show-user-name: false
 
 -- ftd.column:
 if: { join-waitlist-popup.visible }
@@ -5296,9 +5297,10 @@ border-color: $inherited.colors.custom.two
 border-radius.px: 10
 min-height.fixed.px: 43
 margin-top.px: 8
-$on-blur$: $common.popup-form-validate()
+$on-blur$: ftd.set-bool($a = $join-waitlist-popup.show-user-name, v = true)
 
 -- ftd.text: $join-waitlist-popup.name-warning
+if: { join-waitlist-popup.show-user-name }
 id: user-name-warning
 role: $inherited.types.copy-small
 color: $fonts.dc3545
