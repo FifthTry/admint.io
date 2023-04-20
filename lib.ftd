@@ -2251,6 +2251,13 @@ string email-warning: Email is requied
 common.role-record list roles: $common.roles
 string cta-text:
 integer width: 1320
+boolean $show-user-name: false
+boolean $show-org-warning: false
+boolean $show-label-success: false
+boolean $show-email-warning: false
+optional string $pass:
+optional string $email-input:
+optional string $org-input:
 
 -- ftd.column:
 width: fill-container
@@ -2296,10 +2303,11 @@ border-radius.px: 10
 color: $inherited.colors.text
 height.fixed.px: 43
 margin-top.px: 8
-$on-blur$: $common.form-validate()
+$on-input$: $ftd.set-string($a = $join-waitlist-form.pass, v = $VALUE)
+$on-blur$: $ftd.set-string($a = $join-waitlist-form.pass, v = $VALUE)
 
 -- ftd.text: $join-waitlist-form.name-warning
-id: name-warning
+if: { join-waitlist-form.pass == "" }
 role: $inherited.types.copy-small
 color: #dc3545
 
@@ -2341,10 +2349,11 @@ border-radius.px: 10
 color: $inherited.colors.text
 height.fixed.px: 43
 margin-top.px: 8
-$on-blur$: $common.form-validate()
+$on-input$: $ftd.set-string($a = $join-waitlist-form.org-input, v = $VALUE)
+$on-blur$: $ftd.set-string($a = $join-waitlist-form.org-input, v = $VALUE)
 
 -- ftd.text: $join-waitlist-form.org-warning
-id: org-warning
+if: { join-waitlist-form.org-input == "" && join-waitlist-form.pass != ""}
 role: $inherited.types.copy-small
 color: #dc3545
 
@@ -2367,12 +2376,14 @@ border-radius.px: 10
 color: $inherited.colors.text
 height.fixed.px: 43
 margin-top.px: 8
-$on-blur$: $common.form-validate()
+$on-input$: $ftd.set-string($a = $join-waitlist-form.email-input, v = $VALUE)
+$on-blur$: $ftd.set-string($a = $join-waitlist-form.email-input, v = $VALUE)
+
 
 -- end: ftd.text-input
 
 -- ftd.text: $join-waitlist-form.email-warning
-id: email-warning
+if: { join-waitlist-form.email-input == "" && join-waitlist-form.org-input != "" && join-waitlist-form.pass != "" }
 role: $inherited.types.copy-small
 color: #dc3545
 
@@ -2387,10 +2398,10 @@ padding-horizontal: 41
 padding-vertical: 11
 marginTop: 2
 text-color: $inherited.colors.cta-primary.text
-$on-click$: $common.form-validate()
+$on-click$: $change($a = $join-waitlist-form.email-input, $b= join-waitlist-form.org-input, $c = join-waitlist-form.pass, v = true)
 
 -- ftd.text: 
-id: label-success
+if: { join-waitlist-form.show-label-success }
 role: $inherited.types.button-large
 color: $inherited.colors.cta-primary.base
 align-self: end
@@ -4307,6 +4318,7 @@ optional string id:
 
 -- ftd.column:
 width.fixed.percent: 33.33
+width if { ftd.device == "mobile" }: fill-container
 
 -- ftd.column:
 width: fill-container
@@ -4326,6 +4338,8 @@ id: $business-card.id
 spacing.fixed.px: 10
 role: $fonts.font-40-700-60
 color: $fonts.121a17
+css: $assets.files.pricing.css
+classes: pricing
 
 -- ftd.text: \$
 
@@ -4422,7 +4436,7 @@ optional string id:
 
 -- ftd.column:
 width.fixed.percent: 33.33
-
+width if { ftd.device == "mobile" }: fill-container
 -- ftd.column:
 width: fill-container
 background.solid: $inherited.colors.border
@@ -4456,6 +4470,7 @@ width: fill-container
 id: $business-plus-card.id
 spacing.fixed.px: 10
 role: $fonts.font-40-700-60
+classes: pricing
 
 -- ftd.text: \$
 
@@ -4726,8 +4741,7 @@ align-self: center
 -- ftd.column:
 anchor: parent
 top.px: 0
-height.fixed.px: 85
-width.fixed.px: 178
+top.px if { ftd.device == "mobile" }: 7
 height.fixed.px if { ftd.device != "mobile" }: 100
 width.fixed.px if { ftd.device != "mobile" }: 217
 
@@ -4736,6 +4750,8 @@ if: { current-tab == $tab-label.index }
 src: $assets.files.static.pricing.tab-highlight.svg
 height.fixed.px: 135
 width.fixed.px: 217
+height.fixed.px if { ftd.device == "mobile" }: 85
+width.fixed.px if { ftd.device == "mobile" }: 182
 
 -- end: ftd.column
 
