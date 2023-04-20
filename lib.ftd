@@ -2236,7 +2236,13 @@ width.fixed.px: 195
 
 
 
+-- void change(a,b,c,d):
+boolean $d: 
+string a: 
+string b: 
+string c: 
 
+d = (a != "" && b != "" && c != "")
 
 
 -- component join-waitlist-form:
@@ -2253,7 +2259,7 @@ string cta-text:
 integer width: 1320
 boolean $show-user-name: false
 boolean $show-org-warning: false
-boolean $show-label-success: false
+boolean $show-label-success: true
 boolean $show-email-warning: false
 optional string $pass:
 optional string $email-input:
@@ -2307,7 +2313,7 @@ $on-input$: $ftd.set-string($a = $join-waitlist-form.pass, v = $VALUE)
 $on-blur$: $ftd.set-string($a = $join-waitlist-form.pass, v = $VALUE)
 
 -- ftd.text: $join-waitlist-form.name-warning
-if: { join-waitlist-form.pass == "" }
+if: { join-waitlist-form.pass == "" || (   !join-waitlist-form.show-label-success && join-waitlist-form.pass == NULL) }
 role: $inherited.types.copy-small
 color: #dc3545
 
@@ -2398,7 +2404,9 @@ padding-horizontal: 41
 padding-vertical: 11
 marginTop: 2
 text-color: $inherited.colors.cta-primary.text
-$on-click$: $change($a = $join-waitlist-form.email-input, $b= join-waitlist-form.org-input, $c = join-waitlist-form.pass, v = true)
+$on-click$: $change(a = $join-waitlist-form.email-input, b= $join-waitlist-form.org-input, c = $join-waitlist-form.pass, $d= $join-waitlist-form.show-label-success)
+
+-- ftd.boolean: $join-waitlist-form.show-label-success
 
 -- ftd.text: 
 if: { join-waitlist-form.show-label-success }
