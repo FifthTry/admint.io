@@ -6644,7 +6644,8 @@ string newsletter:
 string cta-label:
 string cta-link:
 children child:
-boolean $newsletter-ischecked:
+boolean $newsl
+er-ischecked:
 
 -- ftd.column:
 width: fill-container
