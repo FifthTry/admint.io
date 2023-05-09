@@ -4576,10 +4576,14 @@ integer width: 1160
 boolean show: false
 
 -- ftd.column:
+width: fill-container
+align-content: center
+padding-bottom.px: 60
+
+-- ftd.column:
 if: { tab-panel.show }
 width: fill-container
 align-content: center
-margin-top.px: 57
 
 -- ftd.column:
 background.solid: $inherited.colors.background.step-1
@@ -4658,6 +4662,8 @@ width: fill-container
 spacing.fixed.px: 20
 margin-bottom.px: 24
 padding-horizontal.px: 20
+
+-- end: ftd.column
 
 -- end: ftd.column
 
@@ -6091,6 +6097,7 @@ string tab3-title:
 width: fill-container
 margin-top.px: 39
 align-content: center
+margin-bottom.px: 60
 
 -- ftd.row:
 if: { ftd.device == "desktop" }
