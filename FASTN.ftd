@@ -10,8 +10,8 @@ favicon: https://fifthtry.github.io/admint.io/favicon.ico
 -- fastn.dependency: fifthtry.github.io/montserrat
 -- fastn.dependency: fifthtry.github.io/admint-typography
 -- fastn.dependency: fastn-community.github.io/lato-font
--- fastn.dependency: fastn-community.github.io/doc-site
--- fastn.dependency: fastn-community.github.io/footer
+-- fastn.dependency: fifthtry.github.io/doc-site
+-- fastn.dependency: fifthtry.github.io/footer
 -- fastn.dependency: fastn-community.github.io/opensans-font
 
 -- fastn.auto-import: fifthtry.github.io/admint.io/assets
